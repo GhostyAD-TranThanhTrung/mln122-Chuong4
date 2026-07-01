@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { ChevronRight, ArrowRight, Building2, Briefcase, HandCoins, Network, Users, Shield, Globe } from 'lucide-react';
-import { StateMonopolyChart } from '../components/StateMonopolyChart';
+import { ChevronRight, ArrowRight, Building2, Briefcase, HandCoins, Network, Users, Shield, Globe, BookOpen, Rocket, AlertTriangle, Swords, Factory, Zap, Target } from 'lucide-react';
+import { StateMonopolyChart } from '../components/StateMonopolyChart.tsx';
 
 export function TheoryPage() {
   const [activeSection, setActiveSection] = useState(1);
@@ -28,6 +28,9 @@ export function TheoryPage() {
               <NavItem active={activeSection === 2} onClick={() => setActiveSection(2)} icon={<Network />}>
                 4.3.2. Độc quyền nhà nước
               </NavItem>
+              <NavItem active={activeSection === 3} onClick={() => setActiveSection(3)} icon={<BookOpen />}>
+                4.3.3. Vai trò lịch sử
+              </NavItem>
             </nav>
           </div>
         </aside>
@@ -37,6 +40,7 @@ export function TheoryPage() {
           <div className="space-y-12">
             {activeSection === 1 && <MonopolySection />}
             {activeSection === 2 && <StateMonopolySection />}
+            {activeSection === 3 && <HistoricalRoleSection />}
           </div>
         </main>
       </div>
@@ -48,11 +52,10 @@ function NavItem({ active, onClick, children, icon }: any) {
   return (
     <button
       onClick={onClick}
-      className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-left transition-all ${
-        active 
-          ? 'bg-marx-red text-white shadow-md font-semibold' 
-          : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
-      }`}
+      className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-left transition-all ${active
+        ? 'bg-marx-red text-white shadow-md font-semibold'
+        : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
+        }`}
     >
       <div className={`w-5 h-5 ${active ? 'text-white' : 'text-slate-400'}`}>
         {React.cloneElement(icon, { size: 20 })}
@@ -66,8 +69,8 @@ function NavItem({ active, onClick, children, icon }: any) {
 function MonopolySection() {
   return (
     <div className="space-y-10 animate-in fade-in slide-in-from-right-4 duration-500">
-      <SectionCard 
-        title="4.3.1.1. Biểu hiện mới của tích tụ và tập trung tư bản" 
+      <SectionCard
+        title="4.3.1.1. Biểu hiện mới của tích tụ và tập trung tư bản"
         icon={<Building2 className="text-blue-500" />}
       >
         <p className="text-slate-700 leading-relaxed mb-4">
@@ -90,7 +93,7 @@ function MonopolySection() {
           </h4>
           <p className="text-slate-700 mb-4">Bên cạnh các tổ chức độc quyền lớn lại xuất hiện nhiều doanh nghiệp vừa và nhỏ có vai trò quan trọng:</p>
           <ul className="space-y-2 text-sm text-slate-600 ml-4 list-disc marker:text-marx-red">
-            <li><strong>Sự phụ thuộc:</strong> Các doanh nghiệp vừa và nhỏ phụ thuộc vào các công nghệ và sở hữu trí tuệ của các Concern và Conglomerate (vd: quan hệ Android). Các độc quyền lớn mở rộng kiểm soát SX nói chung, tiến bộ KH&CN nói riêng.</li>
+            <li><strong>Sự phụ thuộc:</strong> Các doanh nghiệp vừa và nhỏ phụ thuộc vào các công nghệ và sở hữu trí tuệ của các Concern và Conglomerate. Các độc quyền lớn mở rộng kiểm soát SX nói chung, tiến bộ KH&CN nói riêng.</li>
             <li><strong>Thế mạnh:</strong>
               <ul className="ml-5 mt-2 space-y-1 list-circle marker:text-slate-400">
                 <li>Nhạy cảm với thay đổi trong SX.</li>
@@ -103,29 +106,29 @@ function MonopolySection() {
         </div>
       </SectionCard>
 
-      <SectionCard 
-        title="4.3.1.2. Biểu hiện về vai trò của tư bản tài chính" 
+      <SectionCard
+        title="4.3.1.2. Biểu hiện về vai trò của tư bản tài chính"
         icon={<HandCoins className="text-amber-500" />}
       >
         <p className="text-slate-700 leading-relaxed mb-6">
           Từ cuối thế kỷ XX đến nay, tư bản tài chính đã có sự thay đổi và có những biểu hiện mới. Nội dung của sự liên kết giữa các ngành trở nên đa dạng hơn, tinh vi hơn và phức tạp hơn:
         </p>
-        
+
         <div className="grid md:grid-cols-2 gap-6 mb-8">
           <div className="glass p-5 rounded-xl border border-slate-200">
             <h5 className="font-semibold text-slate-900 mb-3 text-sm uppercase tracking-wider text-amber-600">Công - Nông - Thương - Tín - Dịch vụ</h5>
             <ul className="space-y-2 text-sm text-slate-700 font-medium">
-              <li className="flex items-center gap-2"><ArrowRight className="w-3 h-3 text-marx-red"/> Tập đoàn Vingroup</li>
-              <li className="flex items-center gap-2"><ArrowRight className="w-3 h-3 text-marx-red"/> Tập đoàn TH (TH group)</li>
-              <li className="flex items-center gap-2"><ArrowRight className="w-3 h-3 text-marx-red"/> Tập đoàn Nestlé</li>
+              <li className="flex items-center gap-2"><ArrowRight className="w-3 h-3 text-marx-red" /> Tập đoàn Vingroup</li>
+              <li className="flex items-center gap-2"><ArrowRight className="w-3 h-3 text-marx-red" /> Tập đoàn TH (TH group)</li>
+              <li className="flex items-center gap-2"><ArrowRight className="w-3 h-3 text-marx-red" /> Tập đoàn Nestlé</li>
             </ul>
           </div>
           <div className="glass p-5 rounded-xl border border-slate-200">
             <h5 className="font-semibold text-slate-900 mb-3 text-sm uppercase tracking-wider text-amber-600">Công nghiệp - Quân sự - Dịch vụ quốc phòng</h5>
             <ul className="space-y-2 text-sm text-slate-700 font-medium">
-              <li className="flex items-center gap-2"><ArrowRight className="w-3 h-3 text-marx-red"/> Tập đoàn hàng không và vũ trụ Boeing</li>
-              <li className="flex items-center gap-2"><ArrowRight className="w-3 h-3 text-marx-red"/> Samsung Heavy Industries</li>
-              <li className="flex items-center gap-2"><ArrowRight className="w-3 h-3 text-marx-red"/> Mitsubishi Heavy Industries</li>
+              <li className="flex items-center gap-2"><ArrowRight className="w-3 h-3 text-marx-red" /> Tập đoàn hàng không và vũ trụ Boeing</li>
+              <li className="flex items-center gap-2"><ArrowRight className="w-3 h-3 text-marx-red" /> Samsung Heavy Industries</li>
+              <li className="flex items-center gap-2"><ArrowRight className="w-3 h-3 text-marx-red" /> Mitsubishi Heavy Industries</li>
             </ul>
           </div>
         </div>
@@ -137,7 +140,7 @@ function MonopolySection() {
           </p>
           <div className="grid sm:grid-cols-2 gap-4">
             <div className="bg-white/10 p-4 rounded-xl backdrop-blur-sm">
-              <h5 className="font-bold text-white mb-2 text-sm flex items-center gap-2"><Shield className="w-4 h-4 text-green-400"/> Khống chế trực tiếp</h5>
+              <h5 className="font-bold text-white mb-2 text-sm flex items-center gap-2"><Shield className="w-4 h-4 text-green-400" /> Khống chế trực tiếp</h5>
               <ul className="text-xs text-slate-300 space-y-1 list-disc ml-4">
                 <li>Quyền biểu quyết lớn</li>
                 <li>Bầu Hội đồng quản trị</li>
@@ -145,15 +148,15 @@ function MonopolySection() {
               </ul>
             </div>
             <div className="bg-white/10 p-4 rounded-xl backdrop-blur-sm">
-              <h5 className="font-bold text-white mb-2 text-sm flex items-center gap-2"><Globe className="w-4 h-4 text-blue-400"/> Khống chế gián tiếp</h5>
+              <h5 className="font-bold text-white mb-2 text-sm flex items-center gap-2"><Globe className="w-4 h-4 text-blue-400" /> Khống chế gián tiếp</h5>
               <p className="text-xs text-slate-300">Bán tháo cổ phiếu làm giá giảm mạnh, dẫn đến các nhà đầu tư khác bán theo. Gây áp lực lớn lên ban lãnh đạo qua thị trường tài chính.</p>
             </div>
           </div>
         </div>
       </SectionCard>
 
-      <SectionCard 
-        title="4.3.1.3. Biểu hiện mới của xuất khẩu tư bản" 
+      <SectionCard
+        title="4.3.1.3. Biểu hiện mới của xuất khẩu tư bản"
         icon={<Globe className="text-emerald-500" />}
       >
         <div className="grid md:grid-cols-2 gap-6">
@@ -174,11 +177,11 @@ function MonopolySection() {
               </div>
             </div>
           </InfoBlock>
-          
+
           <InfoBlock title="Vai trò của TNCs" number="2">
             <div className="mt-2 text-slate-700 leading-relaxed">
-              Vai trò của các công ty xuyên quốc gia <strong>(Transnational Corporation - TNCs)</strong> trong xuất khẩu tư bản ngày càng lớn. 
-              <br/><br/>
+              Vai trò của các công ty xuyên quốc gia <strong>(Transnational Corporation - TNCs)</strong> trong xuất khẩu tư bản ngày càng lớn.
+              <br /><br />
               Đặc biệt là hình thức <strong>đầu tư trực tiếp nước ngoài (Foreign Direct Investment - FDI)</strong>.
             </div>
           </InfoBlock>
@@ -207,8 +210,8 @@ function MonopolySection() {
         </div>
       </SectionCard>
 
-      <SectionCard 
-        title="4.3.1.4. Phân chia thị trường thế giới" 
+      <SectionCard
+        title="4.3.1.4. Phân chia thị trường thế giới"
         icon={<Users className="text-purple-500" />}
       >
         <ul className="space-y-4 text-slate-700">
@@ -227,7 +230,7 @@ function MonopolySection() {
           <li className="flex gap-4 p-4 rounded-xl bg-slate-50 hover:bg-slate-100 transition-colors">
             <div className="mt-1"><div className="w-2 h-2 bg-purple-500 rounded-full"></div></div>
             <div>
-              <strong>Sự tham gia của các nước đang phát triển:</strong> Nhằm chống sức ép cường quốc, họ thành lập OPEC, MERCOSUS, FTA, CU... 
+              <strong>Sự tham gia của các nước đang phát triển:</strong> Nhằm chống sức ép cường quốc, họ thành lập OPEC, MERCOSUS, FTA, CU...
               <p className="mt-2 text-marx-red font-semibold text-sm">=&gt; Tư bản độc quyền quốc tế đang chi phối toàn cầu hoá & ra sức hạn chế sự phát triển của các tổ chức khu vực.</p>
             </div>
           </li>
@@ -240,14 +243,14 @@ function MonopolySection() {
 function StateMonopolySection() {
   return (
     <div className="space-y-10 animate-in fade-in slide-in-from-right-4 duration-500">
-      <SectionCard 
-        title="4.3.2. Biểu hiện mới của độc quyền nhà nước dưới CNTB" 
+      <SectionCard
+        title="4.3.2. Biểu hiện mới của độc quyền nhà nước dưới CNTB"
         icon={<Shield className="text-marx-red" />}
       >
         <p className="text-slate-700 mb-6 font-medium">
           Trực quan hóa cấu trúc 3 trụ cột của Độc quyền nhà nước:
         </p>
-        
+
         <div className="w-full h-[600px] mb-12 rounded-2xl overflow-hidden border-2 border-slate-200 shadow-inner bg-slate-50">
           <StateMonopolyChart />
         </div>
@@ -316,6 +319,98 @@ function StateMonopolySection() {
                 <p className="text-sm text-slate-400">Viện trợ cho nước khác nhưng thực chất mang lợi ích cho doanh nghiệp trong nước (VD: Mỹ viện trợ vũ khí cho Ukraine, công ty quốc phòng Mỹ nhận đơn hàng lớn từ chính phủ).</p>
               </div>
             </div>
+          </div>
+        </div>
+      </SectionCard>
+    </div>
+  );
+}
+
+function HistoricalRoleSection() {
+  return (
+    <div className="space-y-10 animate-in fade-in slide-in-from-right-4 duration-500">
+      <SectionCard
+        title="4.3.3.1. Vai trò tích cực của chủ nghĩa tư bản"
+        icon={<Rocket className="text-blue-500" />}
+      >
+        <div className="grid md:grid-cols-3 gap-6">
+          <div className="bg-blue-50 p-5 rounded-xl border border-blue-100 shadow-sm">
+            <h4 className="font-bold text-blue-900 mb-3 flex items-center gap-2"><Zap className="w-5 h-5" /> Thúc đẩy LLSX</h4>
+            <ul className="text-sm text-slate-700 space-y-2 list-disc ml-4">
+              <li>Phát triển khoa học - công nghệ.</li>
+              <li>Từ lao động thủ công → cơ khí → tự động hóa.</li>
+              <li>Nâng cao năng suất lao động.</li>
+            </ul>
+          </div>
+
+          <div className="bg-indigo-50 p-5 rounded-xl border border-indigo-100 shadow-sm">
+            <h4 className="font-bold text-indigo-900 mb-3 flex items-center gap-2"><Factory className="w-5 h-5" /> Chuyển đổi nền sản xuất</h4>
+            <p className="text-sm text-slate-700 mb-2">Chuyển nền sản xuất nhỏ thành nền sản xuất lớn hiện đại.</p>
+            <p className="text-sm text-slate-600 italic border-l-2 border-indigo-300 pl-2">VD: Nike sử dụng hàng ngàn công nhân để sản xuất giày dép.</p>
+          </div>
+
+          <div className="bg-emerald-50 p-5 rounded-xl border border-emerald-100 shadow-sm">
+            <h4 className="font-bold text-emerald-900 mb-3 flex items-center gap-2"><Network className="w-5 h-5" /> Xã hội hóa sản xuất</h4>
+            <p className="text-sm text-slate-700 mb-2">Các ngành nghề, quốc gia hợp tác với nhau và được phân chia rõ ràng.</p>
+            <p className="text-sm text-slate-600 italic border-l-2 border-emerald-300 pl-2">VD: Apple chế tạo iPhone nhờ kết hợp thiết kế đồ họa, marketing, phần mềm một cách ăn ý.</p>
+          </div>
+        </div>
+      </SectionCard>
+
+      <SectionCard
+        title="4.3.3.2. Những giới hạn phát triển của CNTB"
+        icon={<AlertTriangle className="text-marx-red" />}
+      >
+        <div className="space-y-6">
+          <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+            <h4 className="font-bold text-slate-900 mb-3 text-lg flex items-center gap-2">
+              <Target className="w-5 h-5 text-red-500" /> Lợi ích tập trung vào thiểu số
+            </h4>
+            <p className="text-slate-700 mb-3">
+              Mục đích của nền sản xuất TBCN tập trung chủ yếu vì lợi ích của giai cấp tư sản. Độc quyền tạo ra xu thế kìm hãm cơ hội phát triển kỹ thuật và sản xuất (áp giá mua thấp, giá bán cao).
+            </p>
+          </div>
+
+          <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+            <h4 className="font-bold text-slate-900 mb-3 text-lg flex items-center gap-2">
+              <Swords className="w-5 h-5 text-amber-500" /> Gây ra chiến tranh và xung đột
+            </h4>
+            <p className="text-slate-700 mb-2">Cạnh tranh thuộc địa và thị trường dẫn đến xung đột (CTTG I, II, Chiến tranh lạnh), kéo lùi kinh tế.</p>
+            <div className="bg-amber-50 text-amber-900 p-3 rounded-lg text-sm italic">
+              VD: Chiến tranh Nga-Ukraine, có sự can thiệp và hỗ trợ tài chính, quân sự từ Mỹ, NATO, cũng như cấm vận kinh tế.
+            </div>
+          </div>
+
+          <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+            <h4 className="font-bold text-slate-900 mb-3 text-lg flex items-center gap-2">
+              <Users className="w-5 h-5 text-blue-500" /> Phân hóa giàu - nghèo sâu sắc
+            </h4>
+            <p className="text-slate-700 mb-2">Chênh lệch thu nhập giữa công nhân và doanh nghiệp ngày càng lớn. Chế độ thực dân mới dùng viện trợ để các nước đang phát triển lệ thuộc.</p>
+            <div className="grid md:grid-cols-2 gap-4 mt-3">
+              <div className="bg-slate-50 p-3 rounded-lg text-sm border-l-4 border-slate-300">
+                <strong>VD: Apple</strong><br />Kỹ sư nhận 150k-250k USD/năm. Apple tạo ra hàng chục tỷ USD lợi nhuận.
+              </div>
+              <div className="bg-slate-50 p-3 rounded-lg text-sm border-l-4 border-slate-300">
+                <strong>VD: Châu Phi</strong><br />Phải trả phí "xây dựng thuộc địa" cho hạ tầng do Pháp xây trước đây.
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-gradient-to-br from-slate-900 to-slate-800 text-white p-6 rounded-xl shadow-md border-l-4 border-marx-red">
+            <h4 className="font-bold text-xl mb-3 text-red-400">Mâu thuẫn cơ bản của chủ nghĩa tư bản</h4>
+            <div className="grid md:grid-cols-2 gap-6 mb-4">
+              <div>
+                <strong className="text-blue-300 block mb-1">Lực lượng sản xuất (Tập thể)</strong>
+                <p className="text-sm text-slate-300">Ngày càng phát triển và mang tính xã hội hóa cao.</p>
+              </div>
+              <div>
+                <strong className="text-amber-300 block mb-1">Quan hệ sản xuất (Tư nhân)</strong>
+                <p className="text-sm text-slate-300">Dựa trên sở hữu tư nhân về tư liệu sản xuất, phân phối thành quả mang tính cá nhân.</p>
+              </div>
+            </div>
+            <p className="text-sm italic text-slate-400 border-t border-slate-700 pt-3">
+              VD: Nhà máy ô tô - do hàng nghìn người tạo ra (tập thể), nhưng lợi nhuận thuộc về chủ sở hữu (tư nhân). Khi mâu thuẫn này không được giải quyết, CNTB sẽ bị thay thế bởi các chế độ khác.
+            </p>
           </div>
         </div>
       </SectionCard>
