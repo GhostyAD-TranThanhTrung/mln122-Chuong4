@@ -156,19 +156,53 @@ function MonopolySection() {
         title="4.3.1.3. Biểu hiện mới của xuất khẩu tư bản" 
         icon={<Globe className="text-emerald-500" />}
       >
-        <div className="grid sm:grid-cols-2 gap-4">
-          <InfoBlock title="Hướng xuất khẩu mới" number="1">
-            Trước kia: Từ nước tư bản phát triển → nước kém phát triển.<br/>
-            Hiện nay: Giữa các nước tư bản phát triển với nhau. Do KHKT và vốn lớn, thu lợi nhuận cao, ít rủi ro chính trị.
+        <div className="grid md:grid-cols-2 gap-6">
+          <InfoBlock title="Hướng xuất khẩu tư bản" number="1">
+            <div className="space-y-3 mt-2">
+              <div>
+                <strong className="text-slate-800">Trước kia:</strong> Từ các nước tư bản phát triển → các nước kém phát triển.
+              </div>
+              <div>
+                <strong className="text-slate-800">Những thập kỷ gần đây:</strong> Nước tư bản phát triển ⇔ nước tư bản phát triển.
+              </div>
+              <div className="bg-white/60 p-3 rounded-lg border border-slate-100 shadow-sm">
+                <strong className="text-slate-800 text-xs uppercase tracking-wider block mb-2">Nguyên nhân:</strong>
+                <ul className="list-disc ml-4 space-y-1">
+                  <li>Các nước tư bản phát triển có khoa học, kỹ thuật và vốn lớn, đầu tư thu được lợi nhuận cao.</li>
+                  <li>Các nước đang phát triển thì ngược lại, chính trị kém ổn định, đầu tư rủi ro,...</li>
+                </ul>
+              </div>
+            </div>
           </InfoBlock>
+          
           <InfoBlock title="Vai trò của TNCs" number="2">
-            Vai trò của các công ty xuyên quốc gia (TNCs) ngày càng lớn, đặc biệt là đầu tư trực tiếp nước ngoài (FDI).
+            <div className="mt-2 text-slate-700 leading-relaxed">
+              Vai trò của các công ty xuyên quốc gia <strong>(Transnational Corporation - TNCs)</strong> trong xuất khẩu tư bản ngày càng lớn. 
+              <br/><br/>
+              Đặc biệt là hình thức <strong>đầu tư trực tiếp nước ngoài (Foreign Direct Investment - FDI)</strong>.
+            </div>
           </InfoBlock>
-          <InfoBlock title="Hình thức mới (BOT, BT)" number="3">
-            Sự đan xen giữa xuất khẩu tư bản và xuất khẩu hàng hóa tăng lên (xây dựng - kinh doanh - chuyển giao BOT, BT). Kết hợp hợp đồng dịch vụ, chất xám.
+
+          <InfoBlock title="Đan xen hình thức xuất khẩu" number="3">
+            <div className="mt-2 space-y-3">
+              <p>Sự đan xen giữa xuất khẩu tư bản và xuất khẩu hàng hóa tăng lên, xuất hiện những hình thức mới như:</p>
+              <ul className="list-disc ml-5 space-y-1">
+                <li>Xây dựng - kinh doanh - chuyển giao (Build-Operate-Transfer - BOT)</li>
+                <li>Xây dựng - chuyển giao (Built and Transfer - BT)</li>
+                <li>...</li>
+              </ul>
+              <div className="bg-emerald-50 text-emerald-800 p-3 rounded-lg border border-emerald-100 font-medium text-sm">
+                Sự kết hợp giữa xuất khẩu tư bản với các hợp đồng buôn bán hàng hoá, dịch vụ, chất xám,... không ngừng tăng lên.
+              </div>
+            </div>
           </InfoBlock>
+
           <InfoBlock title="Nguyên tắc cùng có lợi" number="4">
-            Sự áp đặt mang tính chất thực dân trong xuất khẩu tư bản đã được gỡ bỏ dần, đề cao nguyên tắc cùng có lợi trong đầu tư.
+            <div className="mt-2 flex items-start gap-3">
+              <p className="leading-relaxed text-slate-700">
+                Sự áp đặt mang tính chất thực dân trong xuất khẩu tư bản đã được <strong>gỡ bỏ dần</strong> và <strong>nguyên tắc cùng có lợi</strong> trong đầu tư được đề cao.
+              </p>
+            </div>
           </InfoBlock>
         </div>
       </SectionCard>
@@ -306,7 +340,7 @@ function SectionCard({ title, icon, children }: any) {
 function InfoBlock({ title, number, children }: any) {
   return (
     <div className="bg-slate-50 p-5 rounded-xl border border-slate-200 relative overflow-hidden group">
-      <div className="absolute -right-4 -top-4 text-6xl font-black text-slate-200/50 group-hover:text-emerald-100 transition-colors z-0">
+      <div className="absolute right-2 top-2 text-7xl font-black text-slate-200/50 group-hover:text-emerald-100 transition-colors z-0 select-none pointer-events-none leading-none">
         {number}
       </div>
       <div className="relative z-10">
