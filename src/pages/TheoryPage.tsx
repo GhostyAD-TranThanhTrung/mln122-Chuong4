@@ -136,7 +136,7 @@ function MonopolySection() {
         <div className="bg-gradient-to-br from-slate-900 to-slate-800 text-white p-6 rounded-2xl shadow-xl">
           <h4 className="font-bold text-lg mb-4 text-amber-400">Chế độ tham dự & Sự khống chế của đại cổ đông</h4>
           <p className="text-sm text-slate-300 mb-4 leading-relaxed">
-            Cổ phiếu mệnh giá nhỏ được phát hành rộng rãi. "Chế độ tham dự" được bổ sung thêm bằng "chế độ uỷ nhiệm", nghĩa là những đại cổ đông thay mặt cho đa số các cổ đông nhỏ quyết định (ví dụ: BlackRock, Vanguard).
+            Cơ chế tham dự của tư bản tài chính cũng có sự biến đổi, cổ phiếu có mệnh giá nhỏ được phát hành rộng rãi, khối lượng cổ phiếu tăng lên, nhiều tầng lớp dân cư cũng có thể mua được cổ phiếu và trở thành các cổ đông nhỏ. Đồng thời, "chế độ tham dự" được bổ sung thêm bằng "chế độ uỷ nhiệm", nghĩa là những đại cổ đông thay mặt cho đa số các cổ đông nhỏ quyết định (ví dụ: BlackRock, Vanguard).
           </p>
           <div className="grid sm:grid-cols-2 gap-4">
             <div className="bg-white/10 p-4 rounded-xl backdrop-blur-sm">
@@ -192,7 +192,7 @@ function MonopolySection() {
               <ul className="list-disc ml-5 space-y-1">
                 <li>Xây dựng - kinh doanh - chuyển giao (Build-Operate-Transfer - BOT)</li>
                 <li>Xây dựng - chuyển giao (Built and Transfer - BT)</li>
-                <li>...</li>
+                {/* <li>...</li> */}
               </ul>
               <div className="bg-emerald-50 text-emerald-800 p-3 rounded-lg border border-emerald-100 font-medium text-sm">
                 Sự kết hợp giữa xuất khẩu tư bản với các hợp đồng buôn bán hàng hoá, dịch vụ, chất xám,... không ngừng tăng lên.
