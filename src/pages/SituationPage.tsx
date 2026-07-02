@@ -144,11 +144,11 @@ function SituationSection() {
   return (
     <div className="space-y-10 animate-in fade-in slide-in-from-right-4 duration-500">
       <SectionCard title="Tình huống thực tiễn" icon={<Target className="text-marx-red" />}>
-        <div className="bg-slate-50 p-6 rounded-xl border border-slate-200 text-slate-800 text-lg leading-relaxed mb-8">
-          <p className="mb-4 font-medium text-marx-red text-l">
+        <div className="bg-slate-50 p-6 rounded-xl border border-slate-200 text-slate-800 leading-relaxed mb-8">
+          <p className="mb-4 font-medium text-marx-red text-lg">
             Có một sự thật thú vị: Khi uống Coca-Cola hay Pepsi, lợi nhuận cuối cùng đều chảy về túi các cổ đông lớn nhất.
           </p>
-          <ul className="list-disc ml-6 space-y-2 text-base text-slate-700">
+          <ul className="list-disc ml-6 space-y-2 text-slate-700">
             <li>
               Thực tế, hai quỹ đầu tư BlackRock và Vanguard đang nắm giữ cổ phần chi phối tại hầu hết các công ty trong Top 500 thế giới (S&P 500), kể cả các đối thủ cạnh tranh trực tiếp của nhau.
             </li>
@@ -165,7 +165,7 @@ function SituationSection() {
             <h5 className="font-bold text-indigo-900 mb-2 flex items-center gap-2">
               <HelpCircle className="w-5 h-5" /> Chế độ tham dự
             </h5>
-            <p className="text-indigo-900 text-sm">
+            <p className="text-indigo-900">
               Hãy phân tích cách thức "biểu hiện mới" của tư bản tài chính ngày nay. Không cần sở hữu 100% vốn, các ông trùm tài chính dùng cơ chế "cổ phiếu khống chế" và mạng lưới sở hữu chéo để chi phối nền kinh tế toàn cầu như thế nào?
             </p>
           </div>
@@ -174,7 +174,7 @@ function SituationSection() {
             <h5 className="font-bold text-emerald-900 mb-2 flex items-center gap-2">
               <Activity className="w-5 h-5" /> Sự tách rời
             </h5>
-            <p className="text-emerald-800 text-sm">
+            <p className="text-emerald-800">
               Phân tích sự tách rời giữa "Kinh tế thực" (Sản xuất) và "Kinh tế ảo" (Tài chính). Tại sao lợi nhuận từ đầu cơ tài chính ngày nay lại lấn át lợi nhuận từ sản xuất kinh doanh?
             </p>
           </div>
@@ -193,7 +193,7 @@ function BigThreeSection() {
           <strong>The Big Three</strong> của Mỹ gồm <strong>BlackRock, Vanguard (và State Street)</strong> là những tập đoàn tư bản tài chính.
         </p>
         <div className="bg-blue-50 p-5 rounded-xl border border-blue-100 mb-6">
-          <p className="text-sm text-slate-800">
+          <p className="text-slate-800">
             Thay vì trực tiếp sản xuất hàng hóa (như Samsung, Apple), họ kiểm soát nền kinh tế thông qua <strong>cổ phần thiểu số + chế độ uỷ nhiệm</strong>. Họ gộp tiền từ hàng triệu nhà đầu tư để mua cổ phiếu, giúp họ nắm quyền biểu quyết quan trọng tại các tập đoàn hàng đầu thế giới.
           </p>
         </div>
@@ -201,7 +201,7 @@ function BigThreeSection() {
 
       <SectionCard title="Đối tượng phân tích: Coca-Cola & Pepsi" icon={<Target className="text-green-500" />}>
         <p className="text-slate-700 leading-relaxed mb-4">
-          Theo số liệu từ Yahoo Finance (giả định 31/3/2026), chúng ta thấy sự xuất hiện của BlackRock và Vanguard (và State Street) tại hai đối thủ lớn nhất ngành giải khát:
+          Theo số liệu từ Yahoo Finance (31/3/2026), chúng ta thấy sự xuất hiện của BlackRock và Vanguard (và State Street) tại hai đối thủ lớn nhất ngành giải khát:
         </p>
         <div className="grid md:grid-cols-2 gap-6 mb-6">
           <div className="border border-slate-200 rounded-xl overflow-hidden shadow-sm h-[450px] flex flex-col bg-white">
@@ -221,12 +221,12 @@ function BigThreeSection() {
             </div>
           </div>
         </div>
-        <div className="bg-slate-100 p-5 rounded-xl text-slate-800 text-sm mt-6 border-l-4 border-slate-400">
-          <p className="mb-2">
-            <strong>Theo lý thuyết Mác–Lênin</strong> — đây chính là biểu hiện của <strong>TƯ BẢN TÀI CHÍNH</strong>: sự hợp nhất giữa tư bản ngân hàng và tư bản công nghiệp.
+        <div className="bg-slate-100 p-5 rounded-xl text-slate-800 mt-6 border-l-4 border-marx-red shadow-sm">
+          <p className="mb-2 leading-relaxed">
+            <strong>Theo Lênin</strong>, tư bản tài chính là sự hợp nhất giữa tư bản độc quyền ngân hàng và tư bản độc quyền công nghiệp. Giáo trình (trang 97) nhấn mạnh sự ra đời của các <strong>"tập đoàn tài chính quốc tế"</strong> và <strong>"trung tâm tài chính thế giới"</strong>.
           </p>
-          <p>
-            <strong>Điểm then chốt:</strong> không phải cạnh tranh biến mất — mà cạnh tranh đã bị kiểm soát. Lợi nhuận từ cả hai phía đều chảy về cùng một nhóm cổ đông lớn.
+          <p className="leading-relaxed">
+            <strong>Vận dụng vào thực tế:</strong> BlackRock, Vanguard chính là hiện thân đương đại của các tập đoàn tài chính khổng lồ đó. Vai trò trung tâm của ngân hàng cổ điển đang dần nhường chỗ cho các quỹ quản lý tài sản — bản chất chi phối nền kinh tế không đổi, nhưng hình thức tinh vi hơn rất nhiều.
           </p>
         </div>
       </SectionCard>
@@ -242,13 +242,30 @@ function Question1Section() {
       <SectionCard title="Câu hỏi 1: Chế độ tham dự" icon={<Shuffle className="text-indigo-500" />}>
         <div className="space-y-6">
           <div>
-            <h4 className="font-bold text-slate-900 mb-2 text-lg">1. Sự biến đổi của Chế độ tham dự</h4>
-            <div className="bg-slate-50 border-l-4 border-slate-300 p-3 mb-3 italic text-slate-700 text-sm">
+            <h4 className="font-bold text-slate-900 mb-2 text-xl">1. Sự biến đổi của Chế độ tham dự</h4>
+            <div className="bg-slate-50 border-l-4 border-slate-300 p-3 mb-3 italic text-slate-700">
               "Cổ phiếu có mệnh giá nhỏ được phát hành rộng rãi... nhiều tầng lớp dân cư cũng có thể mua được cổ phiếu và trở thành các cổ đông nhỏ..." - Giáo trình, trang 97
             </div>
-            <p className="text-slate-700 leading-relaxed">
+            <p className="text-slate-700 leading-relaxed mb-4">
               <strong>Thực tế:</strong> Coca-Cola có ~4,3 tỷ cổ phiếu. Hàng triệu nhà đầu tư là cổ đông nhỏ, làm vốn bị phân tán cực độ.
             </p>
+            <div className="bg-blue-50 p-4 rounded-xl border border-blue-100 mb-2">
+              <p className="text-slate-800 leading-relaxed">
+                Trước đây, để chi phối một công ty thường cần nắm giữ {">"}50% cổ phần. Ngày nay, do sự phân tán cổ phiếu cực độ vào tay hàng triệu người, <strong>chỉ cần nắm 10–20%, thậm chí thấp hơn</strong>, đã đủ để trở thành cổ đông lớn nhất và nắm quyền khống chế thực tế.
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <h4 className="font-bold text-slate-900 mb-2 text-xl">2. Bổ sung "Chế độ uỷ nhiệm"</h4>
+            <div className="bg-slate-50 border-l-4 border-slate-300 p-3 mb-3 italic text-slate-700">
+              "'Chế độ tham dự' được bổ sung thêm bằng 'chế độ uỷ nhiệm', nghĩa là những đại cổ đông được 'uỷ nhiệm' thay mặt cho đa số cổ đông có ít cổ phiếu..." - Giáo trình, trang 97
+            </div>
+            <ul className="list-disc pl-5 space-y-2 text-slate-700">
+              <li>Triệu NĐT nhỏ <strong>không có động lực đi họp</strong></li>
+              <li>Họ uỷ nhiệm biểu quyết cho các quỹ lớn (BlackRock, Vanguard).</li>
+              <li>Tại đại hội (tính trên số phiếu thực tế), <strong>BlackRock/Vanguard bỏ phiếu gần 100%</strong>. Dù chỉ nắm ~15% cổ phần thực tế, quyền lực của họ áp đảo hoàn toàn.</li>
+            </ul>
           </div>
 
           <div className="border border-slate-200 rounded-2xl overflow-hidden shadow-xl h-[600px] flex flex-col bg-slate-900/5 relative group">
@@ -264,34 +281,32 @@ function Question1Section() {
           </div>
 
           <div>
-            <h4 className="font-bold text-slate-900 mb-2 text-lg">2. Bổ sung "Chế độ uỷ nhiệm"</h4>
-            <div className="bg-slate-50 border-l-4 border-slate-300 p-3 mb-3 italic text-slate-700 text-sm">
-              "'Chế độ tham dự' được bổ sung thêm bằng 'chế độ uỷ nhiệm', nghĩa là những đại cổ đông được 'uỷ nhiệm' thay mặt cho đa số cổ đông có ít cổ phiếu..." - Giáo trình, trang 97
-            </div>
-            <ul className="list-disc pl-5 space-y-2 text-slate-700">
-              <li>Triệu NĐT nhỏ <strong>không có động lực đi họp</strong> (quyền bị bỏ không dùng).</li>
-              <li>Họ uỷ nhiệm biểu quyết cho các quỹ lớn (BlackRock, Vanguard).</li>
-              <li>Tại đại hội (tính trên số phiếu thực tế), <strong>BlackRock/Vanguard bỏ phiếu gần 100%</strong>. Dù chỉ nắm ~15% cổ phần thực tế, quyền lực của họ áp đảo hoàn toàn.</li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-bold text-slate-900 mb-2 text-lg">3. Mạng lưới sở hữu chéo & Xếp tầng</h4>
-            <div className="bg-slate-50 border-l-4 border-slate-300 p-3 mb-3 italic text-slate-700 text-sm">
+            <h4 className="font-bold text-slate-900 mb-2 text-xl">3. Mạng lưới sở hữu chéo & Xếp tầng</h4>
+            <div className="bg-slate-50 border-l-4 border-slate-300 p-3 mb-3 italic text-slate-700">
               "Các tổ chức độc quyền luôn có xu hướng bành trướng quốc tế... xu hướng vận động của chúng là trở thành các công ty xuyên quốc gia..." - Giáo trình, trang 96
             </div>
             <ul className="list-disc pl-5 space-y-2 text-slate-700 mb-4">
-              <li><strong>Nắm cả hai đối thủ:</strong> BlackRock/Vanguard nắm Coke (15.6%) và Pepsi (17.2%) → Không có động lực thúc đẩy cạnh tranh gay gắt.</li>
-              <li><strong>Nắm luôn cổ đông lớn:</strong> Berkshire Hathaway là cổ đông riêng lẻ lớn nhất của Coke, nhưng gần 1/5 cổ phiếu Berkshire lại nằm trong tay BlackRock và Vanguard.</li>
+              <li><strong>Nắm cả đối thủ:</strong> BlackRock/Vanguard nắm Coke (15.6%) và Pepsi (17.2%) → Không có động lực thúc đẩy cạnh tranh gay gắt.</li>
+              <li><strong>Tham dự nhiều tầng nấc:</strong> Berkshire Hathaway là cổ đông riêng lẻ lớn nhất của Coke, nhưng gần 1/5 cổ phiếu Berkshire lại nằm trong tay BlackRock/Vanguard.</li>
+              <li><strong>Quy mô toàn cầu:</strong> BlackRock + Vanguard (+ State Street) là cổ đông lớn nhất hoặc nhì tại khoảng 90% công ty trong S&P 500.
+                {/* Đúng như giáo trình (trang 104) nhận định: <em>"hiện nay có những tập đoàn tư bản lớn ở Mỹ lợi nhuận thu được một năm của họ còn lớn hơn cả GDP của một quốc gia"</em>. */}
+              </li>
             </ul>
             <div className="bg-slate-100 p-4 rounded-xl border border-slate-200">
               <p className="text-slate-800 font-medium italic mb-2">
                 "Các chủ sở hữu lớn giờ đây vừa khống chế trực tiếp vừa khống chế gián tiếp thông qua biến động trên thị trường tài chính, buộc các nhà quản lý phải tuân theo lợi ích của chúng." - Giáo trình, trang 97
               </p>
-              <p className="text-slate-700 text-sm">
+              <p className="text-slate-700">
                 → Cạnh tranh không hề biến mất, mà là <strong>cạnh tranh được kiểm soát</strong> bởi các công ty tài chính.
               </p>
             </div>
+          </div>
+
+          <div className="bg-indigo-50 p-5 rounded-xl border-l-4 border-indigo-600 shadow-sm mt-4">
+            <h5 className="font-bold text-indigo-900 mb-2">Kết luận</h5>
+            <p className="text-indigo-800 leading-relaxed">
+              Sở hữu phân tán về hình thức nhưng quyền lực tập trung về thực chất. Hiện tượng "dân chủ hóa cổ phần" bề ngoài thực chất chỉ làm vỏ bọc che giấu sự thật: quyền khống chế đang tập trung cao độ hơn bao giờ hết vào tay một nhóm rất nhỏ các tập đoàn tư bản tài chính.
+            </p>
           </div>
         </div>
 
@@ -315,10 +330,10 @@ function Question2Section() {
               Thu nhập tài chính không gắn với sản xuất
             </h4>
             <p className="text-slate-700 leading-relaxed mb-4">
-              Có một nghịch lý đang xảy ra trong kinh tế hiện đại. Người công nhân dậy lúc 5 giờ sáng, làm 8 tiếng, tạo ra hàng hóa thực sự. Đó là Kinh tế thực.
+              Người công nhân làm việc 8 tiếng tạo ra hàng hóa thực sự (Kinh tế thực). Cùng lúc đó, quỹ đầu tư chỉ cần nhấn nút mua bán cổ phiếu, thu lợi nhuận gấp nhiều lần từ chênh lệch giá (Kinh tế ảo). Lợi nhuận đầu cơ quá cao khiến tư bản có xu hướng rút vốn khỏi sản xuất để chạy theo tài chính.
             </p>
             <p className="text-slate-700 leading-relaxed mb-4">
-              Cùng lúc đó — một quỹ đầu tư ngồi ở New York nhấn nút mua bán cổ phiếu. Chưa tạo ra một sản phẩm nào. Chưa thuê một nhân công nào. Nhưng lợi nhuận thu về có thể gấp 10 lần người công nhân đó. Đó là Kinh tế ảo — nơi tiền đẻ ra tiền, tách hoàn toàn khỏi giá trị lao động thực.
+              Hiện tượng "tài chính hóa" hút cạn nguồn lực của nền kinh tế thực này chính là một biểu hiện cụ thể của sự kìm hãm mà giáo trình đã đề cập:
             </p>
             <div className="bg-slate-50 border-l-4 border-slate-300 p-4 italic text-slate-700">
               "Xu thế trì trệ của nền kinh tế hay xu thế kìm hãm là do sự thống trị của độc quyền đã tạo ra những nhân tố ngăn cản sự tiến bộ kỹ thuật và phát triển sản xuất." - Giáo trình, trang 103
@@ -329,19 +344,21 @@ function Question2Section() {
           <div>
             <h4 className="text-xl font-bold text-slate-900 mb-3 flex items-center gap-2">
               <span className="bg-amber-100 text-amber-600 w-8 h-8 rounded-full flex items-center justify-center text-sm shrink-0">2</span>
-              Rủi ro bất đối xứng — tài chính được nhà nước bảo hiểm ngầm
+              Sở hữu nhà nước & Chủ nghĩa tư bản độc quyền nhà nước
             </h4>
+            <p className="text-slate-700 leading-relaxed mb-4">
+              Trong kinh tế thực, một nhà máy thất bại sẽ phải phá sản. Nhưng với các định chế tài chính khổng lồ, rủi ro lại mang tính bất đối xứng: <strong>"lợi nhuận tư nhân hóa, tổn thất xã hội hóa"</strong>.
+            </p>
+            <div className="bg-slate-50 border-l-4 border-slate-300 p-4 italic text-slate-700 mb-4">
+              "Nhà nước đã dùng ngân sách của mình để tạo nên những cơ sở vật chất, gánh chịu các rủi ro lớn, còn các công ty tư nhân tập trung vào các lĩnh vực có lợi nhuận hấp dẫn... Cổ phần của nhà nước trong các ngân hàng và công ty lớn trở thành phổ biến." - Giáo trình, trang 100
+            </div>
             <ul className="list-disc ml-6 space-y-2 text-slate-700 mb-4">
-              <li>Nhà máy Coke thất bại → phá sản.</li>
-              <li>Citigroup thất bại → nhà nước bơm 45 tỷ USD và bảo lãnh 301 tỷ USD tài sản độc hại.</li>
-              <li>AIG đã được Chính phủ Mỹ giải cứu hai lần bằng tổng số tiền lên tới 150 tỷ USD trong năm 2008.</li>
+              <li>Biểu hiện rõ nhất: Citigroup thất bại → được nhà nước bơm 45 tỷ USD và bảo lãnh 301 tỷ USD tài sản độc hại.</li>
+              <li>AIG được Chính phủ Mỹ giải cứu 150 tỷ USD trong năm 2008.</li>
             </ul>
             <p className="text-slate-700 leading-relaxed mb-4">
-              Điều này tạo lợi thế cạnh tranh không công bằng: tài chính có thể chấp nhận rủi ro mà sản xuất thông thường không thể. Đổi lại, Chính phủ Mỹ đã kiểm soát mức cổ phần gần 80% của hãng bảo hiểm này.
+              Đổi lại, Chính phủ Mỹ đã kiểm soát 36% cổ phần Citigroup và gần 80% của AIG. Đây chính là biểu hiện mới về sở hữu nhà nước (mục 4.3.2.2), phản ánh sự can thiệp và cứu trợ của nhà nước để bảo vệ hệ thống tài chính độc quyền.
             </p>
-            <div className="bg-slate-50 border-l-4 border-slate-300 p-4 italic text-slate-700">
-              "Chính phủ Mỹ nâng cổ phần nắm giữ trong Citigroup lên mức 36%. Citigroup đã được Chính phủ Mỹ bơm cho 45 tỷ USD và bảo lãnh cho 301 tỷ USD tài sản độc hại. AIG đã được Chính phủ Mỹ giải cứu hai lần bằng tổng số tiền lên tới 150 tỷ USD trong năm 2008." - Giáo trình, trang 100
-            </div>
           </div>
 
           {/* Section 3 */}
@@ -351,11 +368,11 @@ function Question2Section() {
               Mâu thuẫn cơ bản — sản xuất xã hội hóa, tích lũy tư nhân hóa
             </h4>
             <p className="text-slate-700 leading-relaxed mb-4">
-              Hàng triệu công nhân Coke và Pepsi tạo ra giá trị thực; nhưng phần lớn giá trị thặng dư bị tư bản tài chính chiếm đoạt qua cổ tức và tăng giá cổ phiếu — mà không cần đặt một viên gạch xây nhà máy.
+              Hàng triệu công nhân Coke và Pepsi trên toàn cầu đóng góp sức lao động để tạo ra giá trị thực; nhưng phần lớn giá trị thặng dư lại bị các tập đoàn tài chính chiếm đoạt qua cổ tức và tăng giá cổ phiếu — mà không cần trực tiếp sản xuất.
             </p>
-            <p className="text-slate-700 leading-relaxed mb-6">
-              Đây chính là mâu thuẫn cơ bản: sản xuất ngày càng xã hội hóa, nhưng quyền chiếm hữu thành quả ngày càng tập trung.
-            </p>
+            <div className="bg-slate-50 border-l-4 border-slate-300 p-4 italic text-slate-700 mb-6">
+              Sự chênh lệch này khoét sâu "mâu thuẫn giữa trình độ xã hội hóa ngày càng cao của lực lượng sản xuất với quan hệ sản xuất dựa trên quan hệ chiếm hữu tư nhân tư bản chủ nghĩa về tư liệu sản xuất." - Giáo trình, trang 104-105
+            </div>
 
             <div className="mt-8 mb-6 overflow-x-auto rounded-xl border border-slate-200 shadow-sm">
               <table className="w-full text-left text-sm text-slate-600">
