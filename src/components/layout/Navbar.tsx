@@ -13,11 +13,11 @@ export function Navbar() {
             Tiền Chảy Về Đâu?
           </span>
         </Link>
-        
+
         <div className="hidden md:flex items-center gap-8">
           <Link to="/theory" className="text-sm font-medium text-slate-600 hover:text-primary-600 flex items-center gap-2 transition-colors">
             <Info className="w-4 h-4" />
-            Lý luận
+            Lý thuyết
           </Link>
           <Link to="/situation" className="text-sm font-medium text-slate-600 hover:text-primary-600 flex items-center gap-2 transition-colors">
             <Target className="w-4 h-4" />
