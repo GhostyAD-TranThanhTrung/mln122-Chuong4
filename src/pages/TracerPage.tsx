@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import { Search, Network, Loader2, AlertCircle, Layers, Camera, PieChart } from 'lucide-react';
+import { Search, Network, Loader2, AlertCircle, Layers, Camera } from 'lucide-react';
 import { useTracer } from '../hooks/useTracer';
 import { NetworkGraph } from '../components/NetworkGraph';
 
