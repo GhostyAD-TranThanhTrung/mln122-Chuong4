@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Search, Network, Info } from 'lucide-react';
+import { Search, Network, Info, Target } from 'lucide-react';
 
 export function Navbar() {
   return (
@@ -18,6 +18,10 @@ export function Navbar() {
           <Link to="/theory" className="text-sm font-medium text-slate-600 hover:text-primary-600 flex items-center gap-2 transition-colors">
             <Info className="w-4 h-4" />
             Lý luận
+          </Link>
+          <Link to="/situation" className="text-sm font-medium text-slate-600 hover:text-primary-600 flex items-center gap-2 transition-colors">
+            <Target className="w-4 h-4" />
+            Tình huống
           </Link>
           <Link to="/tracer" className="text-sm font-medium bg-slate-900 text-white px-5 py-2.5 rounded-full hover:bg-slate-800 flex items-center gap-2 transition-all hover:shadow-lg hover:-translate-y-0.5">
             <Search className="w-4 h-4" />
