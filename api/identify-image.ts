@@ -16,7 +16,7 @@ export default async function handler(req: any, res: any) {
         role: 'user',
         content: [
           { type: 'image', source: { type: 'base64', media_type: mediaType, data: imageBase64 } },
-          { type: 'text', text: 'Look at this product or logo. Identify the PUBLICLY TRADED parent company that owns or manufactures it. For example, if it is GitHub, the parent is Microsoft. If the company is already public, return that company. Respond ONLY with the exact name of the publicly traded parent company, nothing else. Do not include quotes or extra text.' }
+          { type: 'text', text: 'Look at this product or logo. Identify the PUBLICLY TRADED parent company that owns or manufactures it (you may want to look up yahoo finances). For example, if it is GitHub, the parent is Microsoft Corporation. If the company is already public, return that company. Respond ONLY with the exact name of the publicly traded parent company, nothing else. Do not include quotes or extra text.' }
         ]
       }]
     });
