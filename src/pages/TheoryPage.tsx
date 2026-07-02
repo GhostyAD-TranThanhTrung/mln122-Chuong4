@@ -287,13 +287,15 @@ function StateMonopolySection() {
               </p>
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="bg-slate-50 p-4 rounded-lg border border-slate-200">
-                  <strong className="text-sm text-slate-900 block mb-2">VD: Bầu cử Đức 2021 (Liên minh đèn giao thông)</strong>
+                  <strong className="text-sm text-slate-900 block mb-2">VD: Bầu cử Đức 2021</strong>
                   <ul className="text-xs text-slate-600 space-y-1">
                     <li><span className="inline-block w-3 h-3 rounded-full bg-red-500 mr-1"></span> Đảng Dân chủ Xã hội (25.7%)</li>
+                    <li><span className="inline-block w-3 h-3 rounded-full bg-cyan-500 mr-1"></span> Đảng Liên Minh (25.7%)</li>
                     <li><span className="inline-block w-3 h-3 rounded-full bg-green-500 mr-1"></span> Đảng Xanh (14.7%)</li>
                     <li><span className="inline-block w-3 h-3 rounded-full bg-yellow-400 mr-1"></span> Đảng Dân chủ tự do (11.4%)</li>
                   </ul>
-                  <p className="text-xs text-slate-500 mt-2 font-medium italic">Không đảng nào quá bán, cùng chia sẻ quản lý đất nước.</p>
+                  <p className="text-xs text-slate-500 mt-2 font-medium italic">Vì không đảng nào đều hơn 50% số ghế, cho nên hình thành liên minh Đèn Giao Thông(Đảng Dân Chủ Xã Hội, Đảng Xanh, Đảng Dân Chủ Tự Do).</p>
+                  <p className="text-xs text-slate-500 mt-2 font-medium italic">Các đảng đều chia sẻ quyền lực cho nhau, không ai hơn ai, cùng chia sẻ quản lý đất nước.</p>
                 </div>
                 <div className="bg-slate-50 p-4 rounded-lg border border-slate-200">
                   <strong className="text-sm text-slate-900 block mb-2">VD: Thương lượng Luật lao động</strong>
