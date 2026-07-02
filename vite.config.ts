@@ -164,7 +164,7 @@ function yahooFinanceApiPlugin(anthropicApiKey: string): Plugin {
               role: 'user',
               content: [
                 { type: 'image', source: { type: 'base64', media_type: mediaType, data: imageBase64 } },
-                { type: 'text', text: 'Look at this product. What is the name of the company or brand that manufactures or owns it? Respond ONLY with the exact company name, nothing else.' }
+                { type: 'text', text: 'Look at this product or logo. Identify the PUBLICLY TRADED parent company that owns or manufactures it. For example, if it is GitHub, the parent is Microsoft. If the company is already public, return that company. Respond ONLY with the exact name of the publicly traded parent company, nothing else. Do not include quotes or extra text.' }
               ]
             }]
           });
