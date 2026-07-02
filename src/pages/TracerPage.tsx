@@ -6,11 +6,13 @@ import { NetworkGraph } from '../components/NetworkGraph';
 export function TracerPage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [depth, setDepth] = useState<1 | 2>(2);
+  const [previewImage, setPreviewImage] = useState<string | null>(null);
   const { state, error, graphData, processText, processImage } = useTracer();
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleSearch = () => {
     if (searchQuery.trim()) {
+      setPreviewImage(null);
       processText(searchQuery.trim(), depth);
     }
   };
@@ -24,6 +26,7 @@ export function TracerPage() {
   const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
+      setPreviewImage(URL.createObjectURL(file));
       const companyName = await processImage(file);
       if (companyName) {
         setSearchQuery(companyName);
@@ -39,7 +42,13 @@ export function TracerPage() {
     <div className="flex flex-col h-[calc(100vh-8rem)] animate-in fade-in duration-500">
       <div className="mb-4">
         <h2 className="text-3xl font-bold text-slate-900 mb-2">Tracer Network</h2>
-        <p className="text-slate-600">Nhập tên công ty hoặc mã chứng khoán để phân tích chuỗi sở hữu (ví dụ: Apple, Coca Cola, AAPL, KO...).</p>
+        <p className="text-slate-600 mb-2">
+          Nhập tên công ty, mã chứng khoán hoặc tải lên hình ảnh sản phẩm để AI phân tích chuỗi sở hữu.
+        </p>
+        <div className="inline-block bg-amber-50 text-amber-700 text-sm font-medium px-3 py-1.5 rounded-lg border border-amber-200/60 shadow-sm">
+          <span className="font-bold mr-1">Lưu ý:</span> 
+          Dữ liệu được truy xuất theo thời gian thực từ Yahoo Finance, do đó công cụ này chỉ lập được biểu đồ cho các <strong>công ty đại chúng</strong> (đã niêm yết trên sàn chứng khoán).
+        </div>
       </div>
 
       <div className="glass rounded-2xl p-4 mb-4 flex flex-col md:flex-row gap-4 items-center">
@@ -118,7 +127,15 @@ export function TracerPage() {
 
         {(state === 'searching' || state === 'analyzing') && (
           <div className="text-center p-8 flex flex-col items-center">
-            <Loader2 className="w-12 h-12 text-marx-red animate-spin mb-4" />
+            {previewImage && (
+              <div className="mb-6 relative w-32 h-32 rounded-2xl overflow-hidden shadow-lg border-4 border-white">
+                <img src={previewImage} alt="Preview" className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-slate-900/10 flex items-center justify-center">
+                  <Loader2 className="w-8 h-8 text-white animate-spin drop-shadow-md" />
+                </div>
+              </div>
+            )}
+            {!previewImage && <Loader2 className="w-12 h-12 text-marx-red animate-spin mb-4" />}
             <h3 className="text-xl font-medium text-slate-700 mb-2">Đang xử lý...</h3>
             <p className="text-slate-500 max-w-sm mx-auto font-medium">
               {state === 'searching' && 'Đang tra cứu dữ liệu doanh nghiệp...'}
@@ -137,7 +154,7 @@ export function TracerPage() {
 
         {state === 'success' && graphData && (
           <div className="w-full h-full p-2 flex flex-col relative bg-white">
-            <div className="absolute top-4 left-4 z-10 pointer-events-none">
+            <div className="absolute top-4 left-4 z-10 pointer-events-none flex flex-col gap-3">
               <h3 className="text-lg font-bold text-slate-800 flex items-center gap-2 bg-white/80 backdrop-blur px-3 py-1.5 rounded-lg border border-slate-200 shadow-sm">
                 <Network className="w-5 h-5 text-marx-red" />
                 Mạng lưới sở hữu
@@ -145,6 +162,12 @@ export function TracerPage() {
                   Cấp độ {depth}
                 </span>
               </h3>
+              
+              {previewImage && (
+                <div className="w-24 h-24 rounded-xl overflow-hidden shadow-md border-2 border-white bg-white">
+                  <img src={previewImage} alt="Product Thumbnail" className="w-full h-full object-cover" />
+                </div>
+              )}
             </div>
             <NetworkGraph graphData={graphData} />
           </div>
