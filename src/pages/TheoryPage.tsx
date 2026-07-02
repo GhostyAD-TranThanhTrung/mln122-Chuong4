@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ChevronRight, ArrowRight, Building2, Briefcase, HandCoins, Network, Users, Shield, Globe, BookOpen, Rocket, AlertTriangle, Swords, Factory, Zap, Target } from 'lucide-react';
 import { StateMonopolyChart } from '../components/StateMonopolyChart.tsx';
 
 export function TheoryPage() {
   const [activeSection, setActiveSection] = useState(1);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [activeSection]);
 
   return (
     <div className="flex flex-col animate-in fade-in slide-in-from-bottom-4 duration-700">

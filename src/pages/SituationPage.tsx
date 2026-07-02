@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ChevronRight, Target, HelpCircle, Activity, Building2, Shuffle, TrendingUp } from 'lucide-react';
 import { NetworkGraph } from '../components/NetworkGraph';
 import type { TracerGraph } from '../types';
@@ -56,6 +56,10 @@ const ultimateGraphData: TracerGraph = {
 
 export function SituationPage() {
   const [activeSection, setActiveSection] = useState(1);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [activeSection]);
 
   return (
     <div className="flex flex-col animate-in fade-in slide-in-from-bottom-4 duration-700">
