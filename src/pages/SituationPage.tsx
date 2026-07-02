@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronRight, Target, AlertTriangle, HelpCircle, Activity, Building2, Shuffle, Users, Shield, TrendingUp, DollarSign } from 'lucide-react';
+import { ChevronRight, Target, HelpCircle, Activity, Building2, Shuffle, TrendingUp } from 'lucide-react';
 import { NetworkGraph } from '../components/NetworkGraph';
 import type { TracerGraph } from '../types';
 
