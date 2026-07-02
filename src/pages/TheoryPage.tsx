@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronRight, ArrowRight, Building2, Briefcase, HandCoins, Network, Users, Shield, Globe, BookOpen, Rocket, AlertTriangle, Swords, Factory, Zap, Target, Activity, Settings, Layers } from 'lucide-react';
+import { ChevronRight, ArrowRight, Building2, HandCoins, Network, Users, Shield, Globe, BookOpen, Rocket, AlertTriangle, Swords, Factory, Zap, Target, Activity, Settings, Layers } from 'lucide-react';
 import { StateMonopolyChart } from '../components/StateMonopolyChart.tsx';
 
 export function TheoryPage() {
