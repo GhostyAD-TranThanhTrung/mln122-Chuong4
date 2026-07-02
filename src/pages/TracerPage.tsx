@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import { Search, Network, Loader2, AlertCircle, Layers, Camera } from 'lucide-react';
+import { Search, Network, Loader2, AlertCircle, Layers, Camera, PieChart } from 'lucide-react';
 import { useTracer } from '../hooks/useTracer';
 import { NetworkGraph } from '../components/NetworkGraph';
 
@@ -169,6 +169,39 @@ export function TracerPage() {
                 </div>
               )}
             </div>
+
+            {graphData.majorHoldersBreakdown && (
+              <div className="absolute bottom-4 right-4 z-10 bg-slate-950 text-slate-100 rounded-xl overflow-hidden shadow-2xl border border-slate-800 w-[420px] text-sm animate-in fade-in slide-in-from-bottom-4 pointer-events-auto">
+                <div className="px-5 py-3.5 border-b border-slate-800 bg-slate-900/40">
+                  <h4 className="font-bold text-lg">Major Holders</h4>
+                </div>
+                <div className="p-0">
+                  <div className="grid grid-cols-[25%_75%] border-b border-slate-800/80 text-xs font-semibold text-slate-400 px-5 py-2.5 bg-slate-900/20">
+                    <div>Breakdown</div>
+                    <div></div>
+                  </div>
+                  <div className="flex flex-col">
+                    <div className="grid grid-cols-[25%_75%] px-5 py-3.5 border-b border-slate-800/50 hover:bg-slate-800/50 transition-colors">
+                      <div className="font-bold text-white text-[15px]">{((graphData.majorHoldersBreakdown.insidersPercentHeld || 0) * 100).toFixed(2)}%</div>
+                      <div className="text-slate-300 font-medium">% of Shares Held by All Insider</div>
+                    </div>
+                    <div className="grid grid-cols-[25%_75%] px-5 py-3.5 border-b border-slate-800/50 hover:bg-slate-800/50 transition-colors">
+                      <div className="font-bold text-white text-[15px]">{((graphData.majorHoldersBreakdown.institutionsPercentHeld || 0) * 100).toFixed(2)}%</div>
+                      <div className="text-slate-300 font-medium">% of Shares Held by Institutions</div>
+                    </div>
+                    <div className="grid grid-cols-[25%_75%] px-5 py-3.5 border-b border-slate-800/50 hover:bg-slate-800/50 transition-colors">
+                      <div className="font-bold text-white text-[15px]">{((graphData.majorHoldersBreakdown.institutionsFloatPercentHeld || 0) * 100).toFixed(2)}%</div>
+                      <div className="text-slate-300 font-medium">% of Float Held by Institutions</div>
+                    </div>
+                    <div className="grid grid-cols-[25%_75%] px-5 py-3.5 hover:bg-slate-800/50 transition-colors">
+                      <div className="font-bold text-white text-[15px]">{graphData.majorHoldersBreakdown.institutionsCount || 0}</div>
+                      <div className="text-slate-300 font-medium">Number of Institutions Holding Shares</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+
             <NetworkGraph graphData={graphData} />
           </div>
         )}

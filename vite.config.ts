@@ -34,7 +34,7 @@ function yahooFinanceApiPlugin(anthropicApiKey: string): Plugin {
           if (isValidTicker(resolvedTicker)) {
             try {
               quote = await yahooFinance.quoteSummary(resolvedTicker, {
-                modules: ['institutionOwnership', 'fundOwnership', 'price']
+                modules: ['institutionOwnership', 'fundOwnership', 'price', 'majorHoldersBreakdown']
               }) as any;
               resolvedName = quote?.price?.shortName || quote?.price?.longName || null;
             } catch (_) {
@@ -58,7 +58,7 @@ function yahooFinanceApiPlugin(anthropicApiKey: string): Plugin {
             resolvedTicker = bestMatch.symbol;
             resolvedName = bestMatch.shortname || bestMatch.longname || null;
             quote = await yahooFinance.quoteSummary(resolvedTicker, {
-              modules: ['institutionOwnership', 'fundOwnership', 'price']
+              modules: ['institutionOwnership', 'fundOwnership', 'price', 'majorHoldersBreakdown']
             }) as any;
             if (!resolvedName) {
               resolvedName = quote?.price?.shortName || quote?.price?.longName || null;
@@ -126,8 +126,16 @@ function yahooFinanceApiPlugin(anthropicApiKey: string): Plugin {
             }
           }
 
+          const breakdown = quote.majorHoldersBreakdown;
+          const majorHoldersBreakdown = breakdown ? {
+            insidersPercentHeld: breakdown.insidersPercentHeld,
+            institutionsPercentHeld: breakdown.institutionsPercentHeld,
+            institutionsFloatPercentHeld: breakdown.institutionsFloatPercentHeld,
+            institutionsCount: breakdown.institutionsCount
+          } : undefined;
+
           res.setHeader('Content-Type', 'application/json');
-          res.end(JSON.stringify({ nodes, links }));
+          res.end(JSON.stringify({ nodes, links, majorHoldersBreakdown }));
         } catch (error: any) {
           console.error("API Error:", error);
           res.statusCode = 500;

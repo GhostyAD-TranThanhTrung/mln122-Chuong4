@@ -15,9 +15,17 @@ export interface TracerLink {
   label: string;
 }
 
+export interface MajorHoldersBreakdown {
+  insidersPercentHeld?: number;
+  institutionsPercentHeld?: number;
+  institutionsFloatPercentHeld?: number;
+  institutionsCount?: number;
+}
+
 export interface TracerGraph {
   nodes: TracerNode[];
   links: TracerLink[];
+  majorHoldersBreakdown?: MajorHoldersBreakdown;
 }
 
 export interface OpenSanctionsEntity {

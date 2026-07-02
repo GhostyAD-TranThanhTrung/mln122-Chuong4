@@ -21,7 +21,7 @@ export default async function handler(req: any, res: any) {
     if (isValidTicker(resolvedTicker)) {
       try {
         quote = await yahooFinance.quoteSummary(resolvedTicker, {
-          modules: ['institutionOwnership', 'fundOwnership', 'price']
+          modules: ['institutionOwnership', 'fundOwnership', 'price', 'majorHoldersBreakdown']
         }) as any;
         resolvedName = quote?.price?.shortName || quote?.price?.longName || null;
       } catch (_) {
@@ -41,7 +41,7 @@ export default async function handler(req: any, res: any) {
       resolvedTicker = bestMatch.symbol;
       resolvedName = bestMatch.shortname || bestMatch.longname || null;
       quote = await yahooFinance.quoteSummary(resolvedTicker, {
-        modules: ['institutionOwnership', 'fundOwnership', 'price']
+        modules: ['institutionOwnership', 'fundOwnership', 'price', 'majorHoldersBreakdown']
       }) as any;
       if (!resolvedName) {
         resolvedName = quote?.price?.shortName || quote?.price?.longName || null;
@@ -105,7 +105,15 @@ export default async function handler(req: any, res: any) {
       }
     }
 
-    return res.status(200).json({ nodes, links });
+    const breakdown = quote.majorHoldersBreakdown;
+    const majorHoldersBreakdown = breakdown ? {
+      insidersPercentHeld: breakdown.insidersPercentHeld,
+      institutionsPercentHeld: breakdown.institutionsPercentHeld,
+      institutionsFloatPercentHeld: breakdown.institutionsFloatPercentHeld,
+      institutionsCount: breakdown.institutionsCount
+    } : undefined;
+
+    return res.status(200).json({ nodes, links, majorHoldersBreakdown });
   } catch (error: any) {
     console.error("API Error:", error);
     return res.status(500).json({ error: error.message || 'Internal Server Error' });
