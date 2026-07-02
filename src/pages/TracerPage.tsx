@@ -173,29 +173,29 @@ export function TracerPage() {
             {graphData.majorHoldersBreakdown && (
               <div className="absolute bottom-4 right-4 z-10 bg-[#0B0F19] text-slate-100 rounded-xl overflow-hidden shadow-2xl border border-slate-800 w-max min-w-[320px] text-xs animate-in fade-in slide-in-from-bottom-4 pointer-events-auto">
                 <div className="px-4 py-2.5 border-b border-slate-800 bg-[#0B0F19]">
-                  <h4 className="font-bold text-sm text-white">Major Holders</h4>
+                  <h4 className="font-bold text-sm text-white">Cổ đông lớn</h4>
                 </div>
                 <div className="p-0">
                   <div className="grid grid-cols-[65px_1fr] border-b border-slate-800/80 text-[11px] font-semibold text-slate-400 px-4 py-1.5 bg-[#0B0F19]">
-                    <div>Breakdown</div>
+                    <div>Phân bổ</div>
                     <div></div>
                   </div>
                   <div className="flex flex-col">
                     <div className="grid grid-cols-[65px_1fr] gap-2 px-4 py-2 border-b border-slate-800/50 hover:bg-slate-800/50 transition-colors items-center">
                       <div className="font-bold text-white">{((graphData.majorHoldersBreakdown.insidersPercentHeld || 0) * 100).toFixed(2)}%</div>
-                      <div className="text-slate-300 font-medium whitespace-nowrap">% of Shares Held by All Insider</div>
+                      <div className="text-slate-300 font-medium whitespace-nowrap">% cổ phần do người nội bộ nắm giữ</div>
                     </div>
                     <div className="grid grid-cols-[65px_1fr] gap-2 px-4 py-2 border-b border-slate-800/50 hover:bg-slate-800/50 transition-colors items-center">
                       <div className="font-bold text-white">{((graphData.majorHoldersBreakdown.institutionsPercentHeld || 0) * 100).toFixed(2)}%</div>
-                      <div className="text-slate-300 font-medium whitespace-nowrap">% of Shares Held by Institutions</div>
+                      <div className="text-slate-300 font-medium whitespace-nowrap">% cổ phần do các tổ chức tài chính nắm giữ</div>
                     </div>
                     <div className="grid grid-cols-[65px_1fr] gap-2 px-4 py-2 border-b border-slate-800/50 hover:bg-slate-800/50 transition-colors items-center">
                       <div className="font-bold text-white">{((graphData.majorHoldersBreakdown.institutionsFloatPercentHeld || 0) * 100).toFixed(2)}%</div>
-                      <div className="text-slate-300 font-medium whitespace-nowrap">% of Float Held by Institutions</div>
+                      <div className="text-slate-300 font-medium whitespace-nowrap">% cổ phiếu tự do (float) do các tổ chức nắm giữ</div>
                     </div>
                     <div className="grid grid-cols-[65px_1fr] gap-2 px-4 py-2 hover:bg-slate-800/50 transition-colors items-center">
                       <div className="font-bold text-white">{graphData.majorHoldersBreakdown.institutionsCount || 0}</div>
-                      <div className="text-slate-300 font-medium whitespace-nowrap">Number of Institutions Holding Shares</div>
+                      <div className="text-slate-300 font-medium whitespace-nowrap">Số lượng tổ chức tài chính nắm giữ cổ phần</div>
                     </div>
                   </div>
                 </div>

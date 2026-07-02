@@ -82,20 +82,20 @@ function MonopolySection() {
         </p>
         <div className="grid sm:grid-cols-2 gap-4 mt-6">
           <div className="bg-blue-50/50 rounded-xl p-5 border border-blue-100">
-            <h4 className="font-bold text-blue-900 mb-2">Concern (Consơn)</h4>
+            <h4 className="text-xl font-bold text-blue-900 mb-2">Concern (Consơn)</h4>
             <p className="text-sm text-slate-700">Là tổ chức độc quyền đa ngành, thành phần có hàng trăm xí nghiệp có quan hệ với những ngành khác nhau & được phân bố ở nhiều nước.</p>
             <p className="text-sm text-slate-700 mt-2 italic text-blue-800">Nguyên nhân: Tránh chuyên môn hóa hẹp dễ phá sản trong cạnh tranh gay gắt, và lách luật chống độc quyền (cấm độc quyền 100% một ngành).</p>
           </div>
           <div className="bg-indigo-50/50 rounded-xl p-5 border border-indigo-100">
-            <h4 className="font-bold text-indigo-900 mb-2">Conglomerate (Công-gơ-lô-mê-rết)</h4>
+            <h4 className="text-xl font-bold text-indigo-900 mb-2">Conglomerate (Công-gơ-lô-mê-rết)</h4>
             <p className="text-sm text-slate-700">Là sự kết hợp của hàng chục những hãng vừa và nhỏ không có sự liên quan trực tiếp về sản xuất hoặc dịch vụ cho sản xuất.</p>
             <p className="text-sm text-slate-700 mt-2 italic text-indigo-800">Mục đích chủ yếu: Thu lợi nhuận từ kinh doanh chứng khoán. Phần lớn rất dễ phá sản hoặc phải chuyển thành Concern.</p>
           </div>
         </div>
 
         <div className="mt-8 bg-slate-50 p-6 rounded-xl border border-slate-200">
-          <h4 className="font-bold text-slate-900 mb-3 flex items-center gap-2">
-            <Briefcase className="w-5 h-5 text-slate-500" /> Vai trò của Doanh nghiệp vừa và nhỏ
+          <h4 className="text-xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+            <Globe className="w-5 h-5 text-indigo-500" /> Ngân hàng đa quốc gia & Trung tâm tài chính thế giới
           </h4>
           <p className="text-slate-700 mb-4">Bên cạnh các tổ chức độc quyền lớn lại xuất hiện nhiều doanh nghiệp vừa và nhỏ có vai trò quan trọng:</p>
           <ul className="space-y-2 text-sm text-slate-600 ml-4 list-disc marker:text-marx-red">
@@ -106,8 +106,10 @@ function MonopolySection() {
                 <li>Linh hoạt ứng phó với sự biến động của thị trường.</li>
                 <li>Mạnh dạn đầu tư vào những ngành mới đòi hỏi sự mạo hiểm.</li>
                 <li>Dễ đổi mới trang thiết bị, kỹ thuật mà không cần nhiều chi phí bổ sung.</li>
+                <li>Có thể kết hợp nhiều loại hình kỹ thuật để sản xuất trong điều kiện kết cấu hạ tầng hạn chế.</li>
               </ul>
             </li>
+            <li className="mt-4 pt-2 border-t border-slate-200"><strong>Ngoài ra:</strong> Độc quyền cũng bắt đầu xuất hiện cả ở những nước đang phát triển (kết quả của sự thâm nhập của TNCs và ứng dụng KH-KT hiện đại).</li>
           </ul>
         </div>
       </SectionCard>
@@ -140,9 +142,9 @@ function MonopolySection() {
         </div>
 
         <div className="bg-gradient-to-br from-slate-900 to-slate-800 text-white p-6 rounded-2xl shadow-xl">
-          <h4 className="font-bold text-lg mb-4 text-amber-400">Chế độ tham dự & Sự khống chế của đại cổ đông</h4>
+          <h4 className="text-xl font-bold mb-4 text-amber-400">Chế độ tham dự & Sự khống chế của đại cổ đông</h4>
           <p className="text-sm text-slate-300 mb-4 leading-relaxed">
-            Cơ chế tham dự của tư bản tài chính cũng có sự biến đổi, cổ phiếu có mệnh giá nhỏ được phát hành rộng rãi, khối lượng cổ phiếu tăng lên, nhiều tầng lớp dân cư cũng có thể mua được cổ phiếu và trở thành các cổ đông nhỏ. Đồng thời, "chế độ tham dự" được bổ sung thêm bằng "chế độ uỷ nhiệm", nghĩa là những đại cổ đông thay mặt cho đa số các cổ đông nhỏ quyết định (ví dụ: BlackRock, Vanguard).
+            Cơ chế tham dự của tư bản tài chính cũng có sự biến đổi, cổ phiếu có mệnh giá nhỏ được phát hành rộng rãi, khối lượng cổ phiếu tăng lên, nhiều tầng lớp dân cư cũng có thể mua được cổ phiếu và trở thành các cổ đông nhỏ. Đồng thời, "chế độ tham dự" được bổ sung thêm bằng "chế độ uỷ nhiệm", nghĩa là những đại cổ đông được uỷ nhiệm thay mặt cho đa số các cổ đông nhỏ quyết định phương hướng hoạt động của công ty cổ phần.<br /><br /><span className="font-semibold text-amber-300">Ví dụ đương đại:</span> BlackRock, Vanguard.
           </p>
           <div className="grid sm:grid-cols-2 gap-4">
             <div className="bg-white/10 p-4 rounded-xl backdrop-blur-sm">
@@ -186,9 +188,9 @@ function MonopolySection() {
 
           <InfoBlock title="Vai trò của TNCs" number="2">
             <div className="mt-2 text-slate-700 leading-relaxed">
-              Vai trò của các công ty xuyên quốc gia <strong>(Transnational Corporation - TNCs)</strong> trong xuất khẩu tư bản ngày càng lớn.
+              Vai trò của các công ty xuyên quốc gia <strong>(Transnational Corporation - TNCs)</strong> trong xuất khẩu tư bản ngày càng lớn, đặc biệt là hình thức <strong>đầu tư trực tiếp nước ngoài (FDI)</strong>.
               <br /><br />
-              Đặc biệt là hình thức <strong>đầu tư trực tiếp nước ngoài (Foreign Direct Investment - FDI)</strong>.
+              Mặt khác, đã xuất hiện nhiều chủ thể xuất khẩu tư bản từ các <strong>nước đang phát triển</strong>.
             </div>
           </InfoBlock>
 
@@ -230,13 +232,13 @@ function MonopolySection() {
           <li className="flex gap-4 p-4 rounded-xl bg-slate-50 hover:bg-slate-100 transition-colors">
             <div className="mt-1"><div className="w-2 h-2 bg-purple-500 rounded-full"></div></div>
             <div>
-              <strong>Khu vực hoá kinh tế:</strong> Hình thành các liên minh kinh tế khu vực như EU (Châu Âu), NAFTA (Bắc Mỹ).
+              <strong>Khu vực hoá kinh tế:</strong> Hình thành các liên minh kinh tế khu vực như EU (Châu Âu), NAFTA (nay là USMCA).
             </div>
           </li>
           <li className="flex gap-4 p-4 rounded-xl bg-slate-50 hover:bg-slate-100 transition-colors">
             <div className="mt-1"><div className="w-2 h-2 bg-purple-500 rounded-full"></div></div>
             <div>
-              <strong>Sự tham gia của các nước đang phát triển:</strong> Nhằm chống sức ép cường quốc, họ thành lập OPEC, MERCOSUS, FTA, CU...
+              <strong>Sự tham gia của các nước đang phát triển:</strong> Nhằm chống sức ép cường quốc, họ thành lập OPEC, MERCOSUR, FTA, CU...
               <p className="mt-2 text-marx-red font-semibold text-sm">=&gt; Tư bản độc quyền quốc tế đang chi phối toàn cầu hoá & ra sức hạn chế sự phát triển của các tổ chức khu vực.</p>
             </div>
           </li>
@@ -323,11 +325,17 @@ function StateMonopolySection() {
               <li className="flex gap-4">
                 <div className="w-10 h-10 shrink-0 bg-red-100 text-red-600 rounded-full flex items-center justify-center font-bold">3</div>
                 <div>
-                  <strong>Cứu trợ khủng hoảng:</strong> Bơm vốn, mua cổ phần cứu doanh nghiệp (VD: AIG được Mỹ giải cứu 150 tỷ USD năm 2008, nhà nước kiểm soát 80% để ngăn sụp đổ dây chuyền).
+                  <strong>Cổ phần nhà nước trở nên phổ biến & Cứu trợ khủng hoảng:</strong> Cổ phần của nhà nước trong các ngân hàng và công ty lớn trở thành phổ biến. Bơm vốn, mua cổ phần cứu doanh nghiệp (VD: AIG được Mỹ giải cứu 150 tỷ USD năm 2008, nhà nước kiểm soát gần 80% để ngăn sụp đổ dây chuyền).
                 </div>
               </li>
               <li className="flex gap-4">
-                <div className="w-10 h-10 shrink-0 bg-green-100 text-green-600 rounded-full flex items-center justify-center font-bold">4</div>
+                <div className="w-10 h-10 shrink-0 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center font-bold">4</div>
+                <div>
+                  <strong>Đấu thầu dự án Ngân sách:</strong> Nhờ lợi thế vượt trội, các tập đoàn độc quyền lớn thường thu được lợi nhuận khổng lồ qua đấu thầu các dự án đầu tư bằng Ngân sách nhà nước.
+                </div>
+              </li>
+              <li className="flex gap-4">
+                <div className="w-10 h-10 shrink-0 bg-green-100 text-green-600 rounded-full flex items-center justify-center font-bold">5</div>
                 <div>
                   <strong>Phúc lợi xã hội là thành quả đấu tranh:</strong> Ngân sách chi cho môi trường, y tế, giáo dục miễn phí <em>không phải</em> do CNTB thức tỉnh hay nhân đạo hóa. Đó là <strong>thành quả đấu tranh bền bỉ</strong> của nhân dân tiến bộ, là sự "chuẩn bị vật chất của CNXH" ngay trong lòng CNTB.
                 </div>
@@ -338,12 +346,15 @@ function StateMonopolySection() {
           <div>
             <h4 className="text-xl font-bold text-slate-900 mb-4 border-b pb-2">4.3.2.3. Vai trò công cụ điều tiết kinh tế</h4>
             <div className="bg-slate-900 text-white p-6 rounded-xl">
+              <div className="bg-slate-800/80 border-l-4 border-amber-500 p-4 mb-5 italic text-slate-300">
+                "Các chính phủ, nghị viện tư sản hiện đại cũng được tổ chức như một công ty cổ phần tư bản chủ nghĩa."
+              </div>
               <p className="text-slate-300 mb-4">
                 Đa đảng nhưng chỉ hoạt động khi không thay đổi hệ thống. Nếu có nguy cơ mất kiểm soát, nhà nước dùng biện pháp mạnh (thiết quân luật, đảo chính).
               </p>
               <div className="bg-slate-800 p-4 rounded-lg mb-4 border-l-4 border-marx-red">
-                <strong className="text-white block mb-1">Ví dụ: Chile 1973</strong>
-                <p className="text-sm text-slate-400">Tổng thống Allende quốc hữu hóa công nghiệp trái ý lập pháp. Ngày 11/9/1973, quân đội tiến hành lật đổ.</p>
+                <strong className="text-white block mb-1">Ví dụ: Chile 1973 & Nga 1993</strong>
+                <p className="text-sm text-slate-400">Những gì xảy ra ở Chi-lê năm 1973, nước Nga năm 1993 cho thấy khi nguy cơ mất quyền chi phối xuất hiện, các biện pháp bạo lực như thiết quân luật hay đảo chính sẽ được kích hoạt.</p>
               </div>
               <div className="bg-slate-800 p-4 rounded-lg border-l-4 border-blue-500">
                 <strong className="text-white block mb-1">Viện trợ nước ngoài (Lợi ích cho độc quyền):</strong>
@@ -366,23 +377,22 @@ function HistoricalRoleSection() {
       >
         <div className="grid md:grid-cols-3 gap-6">
           <div className="bg-blue-50 p-5 rounded-xl border border-blue-100 shadow-sm">
-            <h4 className="font-bold text-blue-900 mb-3 flex items-center gap-2"><Zap className="w-5 h-5" /> Thúc đẩy LLSX</h4>
+            <h4 className="text-xl font-bold text-blue-900 mb-3 flex items-center gap-2"><Zap className="w-5 h-5" /> Thúc đẩy LLSX</h4>
             <ul className="text-sm text-slate-700 space-y-2 list-disc ml-4">
-              <li>Phát triển khoa học - công nghệ.</li>
               <li>Từ lao động thủ công → cơ khí → tự động hóa.</li>
-              <li>Nâng cao năng suất lao động.</li>
+              <li>Chủ nghĩa tư bản có công lớn trong phát triển các cuộc cách mạng công nghiệp và hiện nay là <strong>cuộc cách mạng công nghiệp 4.0</strong>.</li>
             </ul>
           </div>
 
           <div className="bg-indigo-50 p-5 rounded-xl border border-indigo-100 shadow-sm">
-            <h4 className="font-bold text-indigo-900 mb-3 flex items-center gap-2"><Factory className="w-5 h-5" /> Chuyển đổi nền sản xuất</h4>
-            <p className="text-sm text-slate-700 mb-2">Chuyển nền sản xuất nhỏ thành nền sản xuất lớn hiện đại.</p>
+            <h4 className="text-xl font-bold text-indigo-900 mb-3 flex items-center gap-2"><Factory className="w-5 h-5" /> Chuyển đổi nền sản xuất</h4>
+            <p className="text-slate-700 mb-2">Chuyển nền sản xuất nhỏ thành nền sản xuất lớn hiện đại.</p>
             <p className="text-sm text-slate-600 italic border-l-2 border-indigo-300 pl-2">VD: Nike sử dụng hàng ngàn công nhân để sản xuất giày dép.</p>
           </div>
 
           <div className="bg-emerald-50 p-5 rounded-xl border border-emerald-100 shadow-sm">
-            <h4 className="font-bold text-emerald-900 mb-3 flex items-center gap-2"><Network className="w-5 h-5" /> Xã hội hóa sản xuất</h4>
-            <p className="text-sm text-slate-700 mb-2">Các ngành nghề, quốc gia hợp tác với nhau và được phân chia rõ ràng.</p>
+            <h4 className="text-xl font-bold text-emerald-900 mb-3 flex items-center gap-2"><Network className="w-5 h-5" /> Xã hội hóa sản xuất</h4>
+            <p className="text-slate-700 mb-2">Các ngành nghề, quốc gia hợp tác với nhau và được phân chia rõ ràng.</p>
             <p className="text-sm text-slate-600 italic border-l-2 border-emerald-300 pl-2">VD: Apple chế tạo iPhone nhờ kết hợp thiết kế đồ họa, marketing, phần mềm một cách ăn ý.</p>
           </div>
         </div>
@@ -394,7 +404,7 @@ function HistoricalRoleSection() {
       >
         <div className="space-y-6">
           <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
-            <h4 className="font-bold text-slate-900 mb-3 text-lg flex items-center gap-2">
+            <h4 className="text-xl font-bold text-slate-900 mb-3 flex items-center gap-2">
               <Target className="w-5 h-5 text-red-500" /> Lợi ích tập trung vào thiểu số
             </h4>
             <p className="text-slate-700 mb-3">
@@ -403,7 +413,7 @@ function HistoricalRoleSection() {
           </div>
 
           <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
-            <h4 className="font-bold text-slate-900 mb-3 text-lg flex items-center gap-2">
+            <h4 className="text-xl font-bold text-slate-900 mb-3 flex items-center gap-2">
               <Swords className="w-5 h-5 text-amber-500" /> Gây ra chiến tranh và xung đột
             </h4>
             <p className="text-slate-700 mb-2">Cạnh tranh thuộc địa và thị trường dẫn đến xung đột (CTTG I, II, Chiến tranh lạnh), kéo lùi kinh tế.</p>
@@ -413,7 +423,7 @@ function HistoricalRoleSection() {
           </div>
 
           <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
-            <h4 className="font-bold text-slate-900 mb-3 text-lg flex items-center gap-2">
+            <h4 className="text-xl font-bold text-slate-900 mb-3 flex items-center gap-2">
               <Users className="w-5 h-5 text-blue-500" /> Phân hóa giàu - nghèo sâu sắc
             </h4>
             <p className="text-slate-700 mb-2">Chênh lệch thu nhập giữa công nhân và doanh nghiệp ngày càng lớn. Chế độ thực dân mới dùng viện trợ để các nước đang phát triển lệ thuộc.</p>
@@ -428,7 +438,7 @@ function HistoricalRoleSection() {
           </div>
 
           <div className="bg-gradient-to-br from-slate-900 to-slate-800 text-white p-6 rounded-xl shadow-md border-l-4 border-marx-red">
-            <h4 className="font-bold text-xl mb-3 text-red-400">Mâu thuẫn cơ bản của chủ nghĩa tư bản</h4>
+            <h4 className="text-xl font-bold mb-3 text-red-400">Mâu thuẫn cơ bản của chủ nghĩa tư bản</h4>
             <div className="grid md:grid-cols-2 gap-6 mb-4">
               <div>
                 <strong className="text-blue-300 block mb-1">Lực lượng sản xuất (Tập thể)</strong>
