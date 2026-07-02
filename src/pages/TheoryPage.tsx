@@ -80,10 +80,12 @@ function MonopolySection() {
           <div className="bg-blue-50/50 rounded-xl p-5 border border-blue-100">
             <h4 className="font-bold text-blue-900 mb-2">Concern (Consơn)</h4>
             <p className="text-sm text-slate-700">Là tổ chức độc quyền đa ngành, thành phần có hàng trăm xí nghiệp có quan hệ với những ngành khác nhau & được phân bố ở nhiều nước.</p>
+            <p className="text-sm text-slate-700 mt-2 italic text-blue-800">Nguyên nhân: Tránh chuyên môn hóa hẹp dễ phá sản trong cạnh tranh gay gắt, và lách luật chống độc quyền (cấm độc quyền 100% một ngành).</p>
           </div>
           <div className="bg-indigo-50/50 rounded-xl p-5 border border-indigo-100">
             <h4 className="font-bold text-indigo-900 mb-2">Conglomerate (Công-gơ-lô-mê-rết)</h4>
             <p className="text-sm text-slate-700">Là sự kết hợp của hàng chục những hãng vừa và nhỏ không có sự liên quan trực tiếp về sản xuất hoặc dịch vụ cho sản xuất.</p>
+            <p className="text-sm text-slate-700 mt-2 italic text-indigo-800">Mục đích chủ yếu: Thu lợi nhuận từ kinh doanh chứng khoán. Phần lớn rất dễ phá sản hoặc phải chuyển thành Concern.</p>
           </div>
         </div>
 
@@ -93,7 +95,7 @@ function MonopolySection() {
           </h4>
           <p className="text-slate-700 mb-4">Bên cạnh các tổ chức độc quyền lớn lại xuất hiện nhiều doanh nghiệp vừa và nhỏ có vai trò quan trọng:</p>
           <ul className="space-y-2 text-sm text-slate-600 ml-4 list-disc marker:text-marx-red">
-            <li><strong>Sự phụ thuộc:</strong> Các doanh nghiệp vừa và nhỏ phụ thuộc vào các công nghệ và sở hữu trí tuệ của các Concern và Conglomerate. Các độc quyền lớn mở rộng kiểm soát SX nói chung, tiến bộ KH&CN nói riêng.</li>
+            <li><strong>Sự phụ thuộc:</strong> Các doanh nghiệp vừa và nhỏ phụ thuộc vào Concern và Conglomerate, dẫn đến hình thành <strong>hệ thống gia công</strong>. Thông qua hợp tác này, các độc quyền lớn mở rộng khả năng kiểm soát sản xuất và tiến bộ KH&CN.</li>
             <li><strong>Thế mạnh:</strong>
               <ul className="ml-5 mt-2 space-y-1 list-circle marker:text-slate-400">
                 <li>Nhạy cảm với thay đổi trong SX.</li>
@@ -236,6 +238,23 @@ function MonopolySection() {
           </li>
         </ul>
       </SectionCard>
+
+      <SectionCard
+        title="4.3.1.5. Phân chia lãnh thổ ảnh hưởng"
+        icon={<Globe className="text-orange-500" />}
+      >
+        <div className="space-y-4 text-slate-700">
+          <p className="font-medium">Sự phân chia thế giới về lãnh thổ vẫn tiếp tục dưới những hình thức thống trị mới:</p>
+          <div className="bg-orange-50 p-4 rounded-xl border border-orange-100">
+            <strong className="text-orange-900 block mb-2">Chiến lược "Biên giới mềm" (Nửa cuối TK XX)</strong>
+            <p className="text-sm text-slate-700">Chủ nghĩa thực dân cũ sụp đổ, các cường quốc bành trướng "biên giới kinh tế" thay cho địa lý. Họ ràng buộc, chi phối các nước kém phát triển từ sự lệ thuộc về vốn, công nghệ đi đến lệ thuộc về chính trị.</p>
+          </div>
+          <div className="bg-slate-50 p-4 rounded-xl border border-slate-200">
+            <strong className="text-slate-900 block mb-2">Chiến tranh hình thức mới (Thế kỷ XXI)</strong>
+            <p className="text-sm text-slate-700">Nguy cơ chiến tranh thế giới bị đẩy lùi nhưng được thay bằng các cuộc chiến tranh thương mại, sắc tộc, tôn giáo. Đứng sau giật dây hoặc núp bóng các cuộc đụng độ này chính là các cường quốc tư bản.</p>
+          </div>
+        </div>
+      </SectionCard>
     </div>
   );
 }
@@ -301,6 +320,12 @@ function StateMonopolySection() {
                   <strong>Cứu trợ khủng hoảng:</strong> Bơm vốn, mua cổ phần cứu doanh nghiệp (VD: AIG được Mỹ giải cứu 150 tỷ USD năm 2008, nhà nước kiểm soát 80% để ngăn sụp đổ dây chuyền).
                 </div>
               </li>
+              <li className="flex gap-4">
+                <div className="w-10 h-10 shrink-0 bg-green-100 text-green-600 rounded-full flex items-center justify-center font-bold">4</div>
+                <div>
+                  <strong>Phúc lợi xã hội là thành quả đấu tranh:</strong> Ngân sách chi cho môi trường, y tế, giáo dục miễn phí <em>không phải</em> do CNTB thức tỉnh hay nhân đạo hóa. Đó là <strong>thành quả đấu tranh bền bỉ</strong> của nhân dân tiến bộ, là sự "chuẩn bị vật chất của CNXH" ngay trong lòng CNTB.
+                </div>
+              </li>
             </ul>
           </div>
 
@@ -315,8 +340,8 @@ function StateMonopolySection() {
                 <p className="text-sm text-slate-400">Tổng thống Allende quốc hữu hóa công nghiệp trái ý lập pháp. Ngày 11/9/1973, quân đội tiến hành lật đổ.</p>
               </div>
               <div className="bg-slate-800 p-4 rounded-lg border-l-4 border-blue-500">
-                <strong className="text-white block mb-1">Viện trợ nước ngoài:</strong>
-                <p className="text-sm text-slate-400">Viện trợ cho nước khác nhưng thực chất mang lợi ích cho doanh nghiệp trong nước (VD: Mỹ viện trợ vũ khí cho Ukraine, công ty quốc phòng Mỹ nhận đơn hàng lớn từ chính phủ).</p>
+                <strong className="text-white block mb-1">Viện trợ nước ngoài (Lợi ích cho độc quyền):</strong>
+                <p className="text-sm text-slate-400">Phương thuốc cứu nguy để giải quyết hàng tồn đọng, công nghệ lỗi thời. Nước tiếp nhận viện trợ thường chỉ nhận được một phần ít ỏi ngoại tệ, còn đa phần là bị ép lấy hàng hóa, thiết bị, và chuyên gia của nước cung cấp.</p>
               </div>
             </div>
           </div>
@@ -440,7 +465,7 @@ function InfoBlock({ title, number, children }: any) {
       </div>
       <div className="relative z-10">
         <h4 className="font-bold text-slate-900 mb-2">{title}</h4>
-        <p className="text-sm text-slate-600">{children}</p>
+        <div className="text-sm text-slate-600">{children}</div>
       </div>
     </div>
   );

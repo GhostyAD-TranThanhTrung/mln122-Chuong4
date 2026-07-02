@@ -29,6 +29,31 @@ const pepsiGraphData: TracerGraph = {
   ]
 };
 
+const ultimateGraphData: TracerGraph = {
+  nodes: [
+    { id: 'Investors', label: 'Hàng triệu NĐT', type: 'brand', description: 'Ủy quyền' },
+    { id: 'BlackRock', label: 'Blackrock Inc.', type: 'fund', description: 'The Big Three' },
+    { id: 'Vanguard', label: 'Vanguard', type: 'fund', description: 'The Big Three' },
+    { id: 'Berkshire', label: 'Berkshire Hathaway', type: 'fund', description: 'Cổ đông lớn' },
+    { id: 'Coca-Cola', label: 'Coca-Cola', type: 'brand', description: 'Sản xuất' },
+    { id: 'Pepsi', label: 'PepsiCo', type: 'brand', description: 'Sản xuất' }
+  ],
+  links: [
+    { source: 'Investors', target: 'BlackRock', label: 'Ủy nhiệm' },
+    { source: 'Investors', target: 'Vanguard', label: 'Ủy nhiệm' },
+
+    { source: 'BlackRock', target: 'Coca-Cola', label: '7.75%' },
+    { source: 'BlackRock', target: 'Pepsi', label: '8.25%' },
+    { source: 'BlackRock', target: 'Berkshire', label: '8.67%' },
+
+    { source: 'Vanguard', target: 'Coca-Cola', label: '7.84%' },
+    { source: 'Vanguard', target: 'Pepsi', label: '8.92%' },
+    { source: 'Vanguard', target: 'Berkshire', label: '8.40%' },
+
+    { source: 'Berkshire', target: 'Coca-Cola', label: '9.30%' }
+  ]
+};
+
 export function SituationPage() {
   const [activeSection, setActiveSection] = useState(1);
 
@@ -50,16 +75,16 @@ export function SituationPage() {
             <h3 className="font-bold text-slate-900 mb-4 px-2 text-lg">Nội dung phân tích</h3>
             <nav className="space-y-1">
               <NavItem active={activeSection === 1} onClick={() => setActiveSection(1)} icon={<Target />}>
-                1. Tình huống
+                1. Tình huống & Yêu cầu
               </NavItem>
-              {/* <NavItem active={activeSection === 2} onClick={() => setActiveSection(2)} icon={<AlertTriangle />}>
-                2. Plot Twist
-              </NavItem> */}
+              <NavItem active={activeSection === 2} onClick={() => setActiveSection(2)} icon={<Building2 />}>
+                2. Bối cảnh: The Big Three
+              </NavItem>
               <NavItem active={activeSection === 3} onClick={() => setActiveSection(3)} icon={<HelpCircle />}>
-                2. Câu hỏi 1: Chế độ tham dự
+                3. Câu hỏi 1: Chế độ tham dự
               </NavItem>
               <NavItem active={activeSection === 4} onClick={() => setActiveSection(4)} icon={<Activity />}>
-                3. Câu hỏi 2: Sự tách rời
+                4. Câu hỏi 2: Sự tách rời
               </NavItem>
             </nav>
           </div>
@@ -69,7 +94,7 @@ export function SituationPage() {
         <main className="w-full md:w-3/4">
           <div className="space-y-12">
             {activeSection === 1 && <SituationSection />}
-            {activeSection === 2 && <PlotTwistSection />}
+            {activeSection === 2 && <BigThreeSection />}
             {activeSection === 3 && <Question1Section />}
             {activeSection === 4 && <Question2Section />}
           </div>
@@ -114,13 +139,55 @@ function SectionCard({ title, icon, children, headerColor = "text-slate-900" }: 
 function SituationSection() {
   return (
     <div className="space-y-10 animate-in fade-in slide-in-from-right-4 duration-500">
+      <SectionCard title="Tình huống thực tiễn" icon={<Target className="text-marx-red" />}>
+        <div className="bg-slate-50 p-6 rounded-xl border border-slate-200 text-slate-800 text-lg leading-relaxed mb-8">
+          <p className="mb-4 font-medium text-marx-red text-xl">
+            Có một sự thật thú vị: Khi uống Coca-Cola hay Pepsi, lợi nhuận cuối cùng đều chảy về túi các cổ đông lớn nhất.
+          </p>
+          <ul className="list-disc ml-6 space-y-2 text-base text-slate-700">
+            <li>
+              Thực tế, hai quỹ đầu tư BlackRock và Vanguard đang nắm giữ cổ phần chi phối tại hầu hết các công ty trong Top 500 thế giới (S&P 500), kể cả các đối thủ cạnh tranh trực tiếp của nhau.
+            </li>
+          </ul>
+          <p className="mt-4 italic font-medium text-slate-600">
+            Có vẻ như sự cạnh tranh giữa Coca và Pepsi chỉ là "bề nổi", còn ông chủ thực sự ở phía sau (Giới đầu sỏ tài chính) thì nắm trọn cả hai đầu.
+          </p>
+        </div>
+
+        <h4 className="font-bold text-xl text-slate-900 mb-4 border-b border-slate-200 pb-2">Vậy Có 2 Câu Hỏi</h4>
+
+        <div className="space-y-4 mb-8">
+          <div className="bg-indigo-50 border-l-4 border-indigo-500 p-5 rounded-r-xl">
+            <h5 className="font-bold text-indigo-900 mb-2 flex items-center gap-2">
+              <HelpCircle className="w-5 h-5" /> Chế độ tham dự
+            </h5>
+          </div>
+
+          <div className="bg-emerald-50 border-l-4 border-emerald-500 p-5 rounded-r-xl">
+            <h5 className="font-bold text-emerald-900 mb-2 flex items-center gap-2">
+              <Activity className="w-5 h-5" /> Sự tách rời
+            </h5>
+            <p className="text-emerald-800 text-sm">
+              Phân tích sự tách rời giữa "Kinh tế thực" (Sản xuất) và "Kinh tế ảo" (Tài chính). Tại sao lợi nhuận từ đầu cơ tài chính ngày nay lại lấn át lợi nhuận từ sản xuất kinh doanh?
+            </p>
+          </div>
+        </div>
+
+      </SectionCard>
+    </div>
+  );
+}
+
+function BigThreeSection() {
+  return (
+    <div className="space-y-10 animate-in fade-in slide-in-from-right-4 duration-500">
       <SectionCard title="Bối cảnh: The Big Three là gì?" icon={<Building2 className="text-blue-500" />}>
         <p className="text-slate-700 leading-relaxed mb-4">
-          <strong>The Big Three</strong> của Mỹ gồm <strong>BlackRock, Vanguard (và State Street)</strong> là những tập đoàn tư bản tài chính dưới hình thức tổ chức <strong>Concern</strong> — tổ chức độc quyền đa ngành nắm giữ hàng nghìn xí nghiệp trên toàn cầu.
+          <strong>The Big Three</strong> của Mỹ gồm <strong>BlackRock, Vanguard (và State Street)</strong> là những tập đoàn tư bản tài chính.
         </p>
         <div className="bg-blue-50 p-5 rounded-xl border border-blue-100 mb-6">
           <p className="text-sm text-slate-800">
-            <strong>Điểm khác biệt:</strong> Thay vì trực tiếp sản xuất hàng hóa (như Samsung, Apple), họ kiểm soát nền kinh tế thông qua <strong>cổ phần thiểu số + chế độ uỷ nhiệm</strong>. Họ gộp tiền từ hàng triệu nhà đầu tư để mua cổ phiếu, giúp họ nắm quyền biểu quyết quan trọng tại các tập đoàn hàng đầu thế giới.
+            Thay vì trực tiếp sản xuất hàng hóa (như Samsung, Apple), họ kiểm soát nền kinh tế thông qua <strong>cổ phần thiểu số + chế độ uỷ nhiệm</strong>. Họ gộp tiền từ hàng triệu nhà đầu tư để mua cổ phiếu, giúp họ nắm quyền biểu quyết quan trọng tại các tập đoàn hàng đầu thế giới.
           </p>
         </div>
       </SectionCard>
@@ -147,138 +214,81 @@ function SituationSection() {
             </div>
           </div>
         </div>
-        <div className="bg-slate-100 p-5 rounded-xl text-slate-800 text-sm">
-          <strong>Hai loại cổ đông, hai mục tiêu:</strong>
-          <ul className="list-disc ml-5 mt-2 space-y-1">
-            <li><strong>Berkshire Hathaway:</strong> Chỉ nắm giữ Coca-Cola, nên muốn Coca-Cola thắng và thúc đẩy cạnh tranh.</li>
-            <li><strong>BlackRock & Vanguard:</strong> Nắm giữ cả hai, muốn cả hai cùng sinh lợi nên <strong>không có động lực tạo áp lực cạnh tranh gay gắt về giá</strong>.</li>
-          </ul>
+        <div className="bg-slate-100 p-5 rounded-xl text-slate-800 text-sm mt-6 border-l-4 border-slate-400">
+          <p className="mb-2">
+            <strong>Theo lý thuyết Mác–Lênin</strong> — đây chính là biểu hiện của <strong>TƯ BẢN TÀI CHÍNH</strong>: sự hợp nhất giữa tư bản ngân hàng và tư bản công nghiệp.
+          </p>
+          <p>
+            <strong>Điểm then chốt:</strong> không phải cạnh tranh biến mất — mà cạnh tranh đã bị kiểm soát. Lợi nhuận từ cả hai phía đều chảy về cùng một nhóm cổ đông lớn.
+          </p>
         </div>
       </SectionCard>
     </div>
   );
 }
 
-function PlotTwistSection() {
-  return (
-    <div className="space-y-10 animate-in fade-in slide-in-from-right-4 duration-500">
-      <SectionCard title="Sự thật bất ngờ (Plot Twist)" icon={<AlertTriangle className="text-marx-red" />} headerColor="text-marx-red">
-        <p className="text-slate-700 leading-relaxed mb-6 font-medium text-lg">
-          Nếu Berkshire Hathaway là "đối trọng" duy nhất muốn thúc đẩy cạnh tranh, thì ai đang đứng sau Berkshire Hathaway?
-        </p>
 
-        <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl p-6 text-white shadow-xl relative overflow-hidden">
-          <div className="absolute right-0 top-0 opacity-10 pointer-events-none">
-            <AlertTriangle size={200} />
-          </div>
-          <h4 className="text-xl font-bold mb-4 flex items-center gap-2 relative z-10">
-            <Shield className="text-amber-400 w-6 h-6" /> Cổ đông lớn nhất của Berkshire Hathaway
-          </h4>
-          <ul className="space-y-3 mb-6 text-lg relative z-10">
-            <li className="flex justify-between border-b border-slate-700 pb-2">
-              <span className="text-slate-300">BlackRock Inc.</span>
-              <span className="font-bold text-amber-400">8.67%</span>
-            </li>
-            <li className="flex justify-between border-b border-slate-700 pb-2">
-              <span className="text-slate-300">Vanguard (gồm các quỹ)</span>
-              <span className="font-bold text-amber-400">8.40%</span>
-            </li>
-          </ul>
-          <div className="bg-white/10 p-4 rounded-xl border border-white/20 backdrop-blur-sm relative z-10">
-            <strong className="text-amber-400 block mb-1">Ý nghĩa của Plot Twist:</strong>
-            <p className="text-slate-200 text-sm leading-relaxed">
-              Ngay cả Berkshire Hathaway — cổ đông có động cơ cạnh tranh rõ ràng nhất — cũng nằm trong mạng lưới sở hữu của Big Three (tổng cộng ~17%). "Đối trọng" duy nhất trên bảng cổ đông của Coca-Cola cũng có <strong>chung ông chủ</strong> với chính Big Three.
-            </p>
-          </div>
-        </div>
-
-        <p className="mt-6 text-slate-700 text-center font-medium">
-          Mạng lưới sở hữu chéo không chỉ trải ngang (nắm cả hai đối thủ Coke–Pepsi) mà còn <strong>xếp tầng dọc</strong> (nắm luôn cổ đông của cổ đông).
-        </p>
-      </SectionCard>
-    </div>
-  );
-}
 
 function Question1Section() {
   return (
     <div className="space-y-10 animate-in fade-in slide-in-from-right-4 duration-500">
-      <div className="bg-indigo-50 border-l-4 border-indigo-500 p-6 rounded-r-2xl shadow-sm">
-        <h3 className="font-bold text-indigo-900 mb-2 flex items-center gap-2 text-lg">
-          <HelpCircle className="w-5 h-5" /> Câu hỏi 1: Chế độ tham dự
-        </h3>
-        <p className="text-indigo-800 font-medium italic">
-          Định nghĩa: Chế độ tham dự: Công ty cổ phần phát hành cổ phiếu → vốn phân tán trong tay nhiều cổ đông. Ông chủ lớn chỉ cần nắm một "cổ phần khống chế" (không cần 100%) là đủ để kiểm soát, vì phần còn lại bị phân tán và thiếu phối hợp.
-        </p>
-      </div>
-
-      <SectionCard title="Cơ chế tham dự phiên bản mới: Cơ chế 3 tầng" icon={<Shuffle className="text-indigo-500" />}>
-        <p className="text-slate-700 mb-6 leading-relaxed">
-          Cổ phiếu mệnh giá nhỏ phát hành rộng rãi → càng nhiều cổ đông nhỏ → cổ phần bị phân tán hơn → cổ đông lớn cần ít % hơn để khống chế. Bổ sung thêm chế độ uỷ nhiệm: cổ đông nhỏ không đi họp → ủy quyền biểu quyết (BlackRock, Vanguard, StateFarm,...) → đại cổ đông kiểm soát trực tiếp + gián tiếp qua thị trường tài chính.
-          <br /><br />
-          Cơ chế gồm các tầng đồng thời:
-        </p>
-
-        <div className="space-y-4 mb-8">
-          <div className="border border-slate-200 p-5 rounded-xl bg-white hover:border-indigo-300 transition-colors">
-            <h4 className="font-bold text-slate-900 mb-2 flex items-center gap-2">
-              <span className="bg-indigo-100 text-indigo-700 w-6 h-6 rounded-full flex items-center justify-center text-sm shrink-0">1</span>
-              Tầng 1: Chế độ uỷ nhiệm (Proxy Voting)
-            </h4>
-            <p className="text-sm text-slate-600">
-              Triệu Nhà đầu tư nhỏ mua cổ phiếu nhưng không đi họp đại hội → uỷ quyền biểu quyết cho BlackRock/Vanguard → 7–8% cổ phần danh nghĩa biến thành ~25% phiếu bầu thực tế tại S&P 500. (Cần fact check)
-            </p>
-          </div>
-
-          <div className="border border-slate-200 p-5 rounded-xl bg-white hover:border-indigo-300 transition-colors">
-            <h4 className="font-bold text-slate-900 mb-2 flex items-center gap-2">
-              <span className="bg-indigo-100 text-indigo-700 w-6 h-6 rounded-full flex items-center justify-center text-sm shrink-0">2</span>
-              Tầng 2: Sở hữu chéo ngang (Cross-ownership)
-            </h4>
-            <p className="text-sm text-slate-600">
-              BlackRock/Vanguard mua cổ phần tại cả hai đối thủ cạnh tranh cùng lúc (Coke 7.75% + 7.84% = 15.6% và Pepsi 8.25% + 8.92% = 17.2%, tính Vanguard gộp hai pháp nhân). Kết quả: họ không có động lực thúc đẩy cạnh tranh gay gắt vì lợi nhuận đến từ cả hai bên (Cạnh tranh là xung đột lợi ích).
-            </p>
-          </div>
-
-          <div className="border border-slate-200 p-5 rounded-xl bg-white hover:border-indigo-300 transition-colors">
-            <h4 className="font-bold text-slate-900 mb-2 flex items-center gap-2">
-              <span className="bg-indigo-100 text-indigo-700 w-6 h-6 rounded-full flex items-center justify-center text-sm shrink-0">3</span>
-              Tầng 3 (từ plot twist): Sở hữu xếp tầng dọc
-            </h4>
-            <p className="text-sm text-slate-600">
-              Nắm luôn cổ đông của cổ đông: BlackRock (8.67%) và Vanguard (8.40%) đồng thời là hai cổ đông lớn nhất của chính Berkshire Hathaway. Khi Berkshire nhận cổ tức từ Coke, một phần giá trị đó lại tiếp tục chảy ngược lên Big Three. Hệ quả: bất kỳ "đối trọng" nào xuất hiện ở tầng sở hữu cũng bị hấp thụ vào mạng lưới — dòng cổ tức đi đường nào cuối cùng cũng chảy qua Big Three, và cạnh tranh giữa các cổ đông lớn cũng bị trung hòa giống như cạnh tranh giữa các công ty.
-            </p>
-          </div>
-        </div>
-
-        <h4 className="font-bold text-lg text-slate-900 mb-4 border-b border-slate-200 pb-2">Phân tích từng bước</h4>
-
+      <SectionCard title="Câu hỏi 1: Chế độ tham dự" icon={<Shuffle className="text-indigo-500" />}>
         <div className="space-y-6">
           <div>
-            <h5 className="font-bold text-indigo-700 mb-1">1. Thu gom vốn</h5>
-            <p className="text-sm text-slate-700 leading-relaxed mb-2">
-              Triệu người lao động gửi tiết kiệm, quỹ hưu trí vào các quỹ chỉ số của BlackRock và Vanguard. Không ai đủ vốn kiểm soát một tập đoàn lớn, nhưng khi gộp lại rất lớn. Đây là cơ chế "xã hội hóa vốn nhỏ → tập trung quyền kiểm soát lớn".
-            </p>
-            <div className="bg-slate-50 border-l-2 border-slate-300 pl-3 py-2 text-sm italic text-slate-600">
+            <h4 className="font-bold text-slate-900 mb-2 text-lg">1. Sự biến đổi của Chế độ tham dự</h4>
+            <div className="bg-slate-50 border-l-4 border-slate-300 p-3 mb-3 italic text-slate-700 text-sm">
               "Cổ phiếu có mệnh giá nhỏ được phát hành rộng rãi... nhiều tầng lớp dân cư cũng có thể mua được cổ phiếu và trở thành các cổ đông nhỏ..." - Giáo trình, trang 97
+            </div>
+            <p className="text-slate-700 leading-relaxed">
+              <strong>Thực tế:</strong> Coca-Cola có ~4,3 tỷ cổ phiếu. Hàng triệu nhà đầu tư là cổ đông nhỏ, làm vốn bị phân tán cực độ.
+            </p>
+          </div>
+
+          <div className="border border-slate-200 rounded-2xl overflow-hidden shadow-xl h-[600px] flex flex-col bg-slate-900/5 relative group">
+            <div className="absolute top-0 left-0 right-0 bg-indigo-600/90 backdrop-blur text-white font-bold p-4 text-center border-b border-indigo-700/50 z-10 shadow-md">
+              Mạng lưới Sở hữu 3 tầng: Tách rời Quyền lực và Cổ phần
+            </div>
+            <div className="flex-1 w-full relative pt-12">
+              <NetworkGraph graphData={ultimateGraphData} r1={160} interactive={true} />
+            </div>
+            <div className="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-sm p-4 rounded-xl border border-slate-200/50 text-sm text-slate-700 shadow-lg pointer-events-none">
+              <strong className="text-indigo-700">Tầng 1:</strong> NĐT nhỏ lẻ uỷ nhiệm → <strong className="text-indigo-700">Tầng 2:</strong> BlackRock và Vanguard nắm quyền biểu quyết → <strong className="text-indigo-700">Tầng 3:</strong> Sở hữu chéo & xếp tầng kiểm soát hoàn toàn thị trường.
             </div>
           </div>
 
           <div>
-            <h5 className="font-bold text-indigo-700 mb-1">2. Sở hữu chéo — mua cổ phần tại cả hai đối thủ</h5>
-            <p className="text-sm text-slate-700 leading-relaxed mb-2">
-              BlackRock và  Vanguard mua cổ phiếu tại hàng nghìn công ty đồng thời, kể cả các đối thủ cạnh tranh trực tiếp. VD: BlackRock nắm cả Coke (7.75%) và Pepsi (8.25%).
-              <br> Tuy nhiên BlackRock và Vanguard tương không muốn một trong hai bên thăng</br>
-              <br />Big Three nắm cả hai → muốn cả hai ổn định. Đây là "cổ phiếu khống chế" không cần 100%.
-            </p>
-            <p className="text-sm text-slate-700 leading-relaxed mb-2">
-              Plot twist bổ sung chiều thứ hai của mạng lưới: sở hữu chéo không chỉ theo chiều ngang (Coke–Pepsi) mà còn theo chiều dọc (Big Three → Berkshire → Coke). Ngay cả cổ đông "muốn Coke thắng" cũng gián tiếp làm việc cho Big Three, nên áp lực cạnh tranh từ tầng sở hữu bị triệt tiêu thêm một lần nữa.
-            </p>
-            <div className="bg-slate-50 border-l-2 border-slate-300 pl-3 py-2 text-sm italic text-slate-600">
+            <h4 className="font-bold text-slate-900 mb-2 text-lg">2. Bổ sung "Chế độ uỷ nhiệm"</h4>
+            <div className="bg-slate-50 border-l-4 border-slate-300 p-3 mb-3 italic text-slate-700 text-sm">
+              "'Chế độ tham dự' được bổ sung thêm bằng 'chế độ uỷ nhiệm', nghĩa là những đại cổ đông được 'uỷ nhiệm' thay mặt cho đa số cổ đông có ít cổ phiếu..." - Giáo trình, trang 97
+            </div>
+            <ul className="list-disc pl-5 space-y-2 text-slate-700">
+              <li>Triệu NĐT nhỏ <strong>không có động lực đi họp</strong> (quyền bị bỏ không dùng).</li>
+              <li>Họ uỷ nhiệm biểu quyết cho các quỹ lớn (BlackRock, Vanguard).</li>
+              <li>Tại đại hội (tính trên số phiếu thực tế), <strong>BlackRock/Vanguard bỏ phiếu gần 100%</strong>. Dù chỉ nắm ~15% cổ phần thực tế, quyền lực của họ áp đảo hoàn toàn.</li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-bold text-slate-900 mb-2 text-lg">3. Mạng lưới sở hữu chéo & Xếp tầng</h4>
+            <div className="bg-slate-50 border-l-4 border-slate-300 p-3 mb-3 italic text-slate-700 text-sm">
               "Các tổ chức độc quyền luôn có xu hướng bành trướng quốc tế... xu hướng vận động của chúng là trở thành các công ty xuyên quốc gia..." - Giáo trình, trang 96
+            </div>
+            <ul className="list-disc pl-5 space-y-2 text-slate-700 mb-4">
+              <li><strong>Nắm cả hai đối thủ:</strong> BlackRock/Vanguard nắm Coke (15.6%) và Pepsi (17.2%) → Không có động lực thúc đẩy cạnh tranh gay gắt.</li>
+              <li><strong>Nắm luôn cổ đông lớn:</strong> Berkshire Hathaway là cổ đông riêng lẻ lớn nhất của Coke, nhưng gần 1/5 cổ phiếu Berkshire lại nằm trong tay BlackRock và Vanguard.</li>
+            </ul>
+            <div className="bg-slate-100 p-4 rounded-xl border border-slate-200">
+              <p className="text-slate-800 font-medium italic mb-2">
+                "Các chủ sở hữu lớn giờ đây vừa khống chế trực tiếp vừa khống chế gián tiếp thông qua biến động trên thị trường tài chính, buộc các nhà quản lý phải tuân theo lợi ích của chúng." - Giáo trình, trang 97
+              </p>
+              <p className="text-slate-700 text-sm">
+                → Cạnh tranh không hề biến mất, mà là <strong>cạnh tranh được kiểm soát</strong> bởi các công ty tài chính.
+              </p>
             </div>
           </div>
         </div>
+
+
       </SectionCard>
     </div>
   );
@@ -287,59 +297,98 @@ function Question1Section() {
 function Question2Section() {
   return (
     <div className="space-y-10 animate-in fade-in slide-in-from-right-4 duration-500">
-      <div className="bg-amber-50 border-l-4 border-amber-500 p-6 rounded-r-2xl shadow-sm">
-        <h3 className="font-bold text-amber-900 mb-2 flex items-center gap-2 text-lg">
-          <HelpCircle className="w-5 h-5" /> Câu hỏi 2: Sự tách rời (Kinh tế thực vs ảo)
-        </h3>
-        <p className="text-amber-800 font-medium italic">
-          "Phân tích sự tách rời giữa 'Kinh tế thực' (Sản xuất) và 'Kinh tế ảo' (Tài chính). Tại sao lợi nhuận từ đầu cơ tài chính ngày nay lại lấn át lợi nhuận từ sản xuất kinh doanh?"
-        </p>
-      </div>
+      <SectionCard title="Câu hỏi 2: Sự tách rời (Kinh tế thực vs ảo)" icon={<TrendingUp className="text-amber-500" />}>
 
-      <SectionCard title="Sự lấn át của tài chính qua 3 bất đối xứng" icon={<TrendingUp className="text-amber-500" />}>
-        <p className="text-slate-700 mb-6">
-          Tư bản tài chính hiện đại vừa kiểm soát kinh tế thực vừa tách rời khỏi nó nhờ vào ba sự bất đối xứng mang tính cấu trúc:
-        </p>
 
-        <div className="grid md:grid-cols-2 gap-6">
-          <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-            <div className="w-10 h-10 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-4">
-              <DollarSign className="w-5 h-5" />
-            </div>
-            <h4 className="font-bold text-slate-900 mb-2">1. Thu nhập bất đối xứng</h4>
-            <p className="text-sm text-slate-600 leading-relaxed">
-              Kinh tế thực kiếm tiền từ bán hàng. Kinh tế ảo (như BlackRock) kiếm tiền từ phí quản lý tính trên tổng tài sản (AUM), thu khoảng 21 tỷ USD mỗi năm, bất kể sản xuất thực bán được nhiều hay ít.
-              <br /><br />
-              <em>"Tách rời hoàn toàn giữa tài chính và sản xuất thực."</em>
+        <div className="space-y-8">
+          {/* Section 1 */}
+          <div>
+            <h4 className="text-xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+              <span className="bg-amber-100 text-amber-600 w-8 h-8 rounded-full flex items-center justify-center text-sm shrink-0">1</span>
+              Thu nhập tài chính không gắn với sản xuất
+            </h4>
+            <p className="text-slate-700 leading-relaxed mb-4">
+              Có một nghịch lý đang xảy ra trong kinh tế hiện đại. Người công nhân dậy lúc 5 giờ sáng, làm 8 tiếng, tạo ra hàng hóa thực sự. Đó là Kinh tế thực.
             </p>
+            <p className="text-slate-700 leading-relaxed mb-4">
+              Cùng lúc đó — một quỹ đầu tư ngồi ở New York nhấn nút mua bán cổ phiếu. Chưa tạo ra một sản phẩm nào. Chưa thuê một nhân công nào. Nhưng lợi nhuận thu về có thể gấp 10 lần người công nhân đó. Đó là Kinh tế ảo — nơi tiền đẻ ra tiền, tách hoàn toàn khỏi giá trị lao động thực.
+            </p>
+            <div className="bg-slate-50 border-l-4 border-slate-300 p-4 italic text-slate-700">
+              "Xu thế trì trệ của nền kinh tế hay xu thế kìm hãm là do sự thống trị của độc quyền đã tạo ra những nhân tố ngăn cản sự tiến bộ kỹ thuật và phát triển sản xuất." - Giáo trình, trang 103
+            </div>
           </div>
 
-          <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-            <div className="w-10 h-10 bg-red-100 text-red-600 rounded-full flex items-center justify-center mb-4">
-              <Shield className="w-5 h-5" />
-            </div>
-            <h4 className="font-bold text-slate-900 mb-2">2. Rủi ro bất đối xứng</h4>
-            <p className="text-sm text-slate-600 leading-relaxed">
-              Nhà máy thất bại thì phá sản. Nhưng các tập đoàn tài chính lớn khi thất bại sẽ được nhà nước cứu trợ bằng tiền thuế (Bảo hiểm ngầm). VD: Citigroup (45 tỷ USD), AIG (150 tỷ USD) năm 2008.
-              <br /><br />
-              <em>"Lợi nhuận tư nhân hóa, tổn thất xã hội hóa."</em>
+          {/* Section 2 */}
+          <div>
+            <h4 className="text-xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+              <span className="bg-amber-100 text-amber-600 w-8 h-8 rounded-full flex items-center justify-center text-sm shrink-0">2</span>
+              Rủi ro bất đối xứng — tài chính được nhà nước bảo hiểm ngầm
+            </h4>
+            <ul className="list-disc ml-6 space-y-2 text-slate-700 mb-4">
+              <li>Nhà máy Coke thất bại → phá sản.</li>
+              <li>Citigroup thất bại → nhà nước bơm 45 tỷ USD và bảo lãnh 301 tỷ USD tài sản độc hại.</li>
+              <li>AIG đã được Chính phủ Mỹ giải cứu hai lần bằng tổng số tiền lên tới 150 tỷ USD trong năm 2008.</li>
+            </ul>
+            <p className="text-slate-700 leading-relaxed mb-4">
+              Điều này tạo lợi thế cạnh tranh không công bằng: tài chính có thể chấp nhận rủi ro mà sản xuất thông thường không thể. Đổi lại, Chính phủ Mỹ đã kiểm soát mức cổ phần gần 80% của hãng bảo hiểm này.
             </p>
+            <div className="bg-slate-50 border-l-4 border-slate-300 p-4 italic text-slate-700">
+              "Chính phủ Mỹ nâng cổ phần nắm giữ trong Citigroup lên mức 36%. Citigroup đã được Chính phủ Mỹ bơm cho 45 tỷ USD và bảo lãnh cho 301 tỷ USD tài sản độc hại. AIG đã được Chính phủ Mỹ giải cứu hai lần bằng tổng số tiền lên tới 150 tỷ USD trong năm 2008." - Giáo trình, trang 100
+            </div>
           </div>
 
-          <div className="md:col-span-2 bg-gradient-to-r from-slate-50 to-slate-100 p-6 rounded-xl border border-slate-200 shadow-sm">
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center shrink-0 mt-1">
-                <Users className="w-6 h-6" />
-              </div>
-              <div>
-                <h4 className="font-bold text-slate-900 mb-2 text-lg">3. Mâu thuẫn cơ bản của CNTB</h4>
-                <p className="text-sm text-slate-600 leading-relaxed mb-4">
-                  Sản xuất ngày càng xã hội hóa (hàng triệu người đóng góp tạo ra giá trị), nhưng tích lũy giá trị thặng dư ngày càng tập trung vào thiểu số tư bản tài chính.
-                </p>
-                <div className="bg-white p-4 rounded-lg border border-slate-200 text-sm italic text-slate-700">
-                  Khi bạn uống lon Coke: tiền từ bạn → Coke → cổ tức → Big Three (chế độ uỷ nhiệm). Song song đó, Big Three còn thu phí quản lý từ việc nắm giữ cổ phần Coke. Đây là cách tư bản tài chính hiện đại vừa kiểm soát kinh tế thực vừa tách rời khỏi nó.
-                </div>
-              </div>
+          {/* Section 3 */}
+          <div>
+            <h4 className="text-xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+              <span className="bg-amber-100 text-amber-600 w-8 h-8 rounded-full flex items-center justify-center text-sm shrink-0">3</span>
+              Mâu thuẫn cơ bản — sản xuất xã hội hóa, tích lũy tư nhân hóa
+            </h4>
+            <p className="text-slate-700 leading-relaxed mb-4">
+              Hàng triệu công nhân Coke và Pepsi tạo ra giá trị thực; nhưng phần lớn giá trị thặng dư bị tư bản tài chính chiếm đoạt qua cổ tức và tăng giá cổ phiếu — mà không cần đặt một viên gạch xây nhà máy.
+            </p>
+            <p className="text-slate-700 leading-relaxed mb-6">
+              Đây chính là mâu thuẫn cơ bản: sản xuất ngày càng xã hội hóa, nhưng quyền chiếm hữu thành quả ngày càng tập trung.
+            </p>
+
+            <div className="mt-8 mb-6 overflow-x-auto rounded-xl border border-slate-200 shadow-sm">
+              <table className="w-full text-left text-sm text-slate-600">
+                <thead className="bg-slate-100 text-slate-800">
+                  <tr>
+                    <th className="p-4 font-bold w-1/4">Tiêu chí</th>
+                    <th className="p-4 font-bold border-l border-slate-200 w-3/8">Kinh tế thực (Sản xuất)</th>
+                    <th className="p-4 font-bold border-l border-slate-200 w-3/8">Kinh tế ảo (Tài chính)</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-200 bg-white">
+                  <tr>
+                    <td className="p-4 font-semibold text-slate-700 bg-slate-50">Hoạt động cốt lõi</td>
+                    <td className="p-4 border-l border-slate-200">Sản xuất hàng hóa, cung cấp dịch vụ (VD: Công nhân nhà máy)</td>
+                    <td className="p-4 border-l border-slate-200">Mua bán tài sản, thu phí quản lý (VD: Quỹ đầu tư)</td>
+                  </tr>
+                  <tr>
+                    <td className="p-4 font-semibold text-slate-700 bg-slate-50">Nguồn gốc thu nhập</td>
+                    <td className="p-4 border-l border-slate-200">Bán sản phẩm/dịch vụ (Gắn liền với giá trị tạo ra)</td>
+                    <td className="p-4 border-l border-slate-200">Phí Tài sản đang quản lí, cổ tức, chênh lệch giá (Tách rời sản xuất)</td>
+                  </tr>
+                  <tr>
+                    <td className="p-4 font-semibold text-slate-700 bg-slate-50">Mức độ rủi ro</td>
+                    <td className="p-4 border-l border-slate-200">Tự chịu 100% rủi ro (Phá sản nếu thất bại)</td>
+                    <td className="p-4 border-l border-slate-200 text-marx-red font-medium">Bảo hiểm ngầm từ Nhà nước ("Lợi nhuận tư nhân hóa, tổn thất xã hội hóa")</td>
+                  </tr>
+                  <tr>
+                    <td className="p-4 font-semibold text-slate-700 bg-slate-50">Sự phân phối</td>
+                    <td className="p-4 border-l border-slate-200">Xã hội hóa cao (Triệu người đóng góp)</td>
+                    <td className="p-4 border-l border-slate-200 text-amber-700 font-medium">Tư nhân hóa cao (Tập trung vào tay số ít tư bản tài chính)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div className="bg-slate-100 p-6 rounded-xl border border-slate-200 shadow-sm">
+              <h5 className="font-bold text-slate-900 mb-2">Tóm lại:</h5>
+              <p className="text-slate-700 leading-relaxed">
+                Khi bạn uống lon Coke: tiền từ bạn → Coke → cổ tức → tập đoàn tư bản tài chính. Song song đó, tập đoàn tư bản tài chính còn thu phí quản lý từ việc nắm giữ cổ phần Coke — bất kể bạn có mua lon nào hay không. Đây là cách tư bản tài chính hiện đại vừa kiểm soát kinh tế thực vừa tách rời khỏi nó.
+              </p>
             </div>
           </div>
         </div>
