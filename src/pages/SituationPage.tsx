@@ -145,7 +145,7 @@ function SituationSection() {
     <div className="space-y-10 animate-in fade-in slide-in-from-right-4 duration-500">
       <SectionCard title="Tình huống thực tiễn" icon={<Target className="text-marx-red" />}>
         <div className="bg-slate-50 p-6 rounded-xl border border-slate-200 text-slate-800 text-lg leading-relaxed mb-8">
-          <p className="mb-4 font-medium text-marx-red text-xl">
+          <p className="mb-4 font-medium text-marx-red text-l">
             Có một sự thật thú vị: Khi uống Coca-Cola hay Pepsi, lợi nhuận cuối cùng đều chảy về túi các cổ đông lớn nhất.
           </p>
           <ul className="list-disc ml-6 space-y-2 text-base text-slate-700">
@@ -165,6 +165,9 @@ function SituationSection() {
             <h5 className="font-bold text-indigo-900 mb-2 flex items-center gap-2">
               <HelpCircle className="w-5 h-5" /> Chế độ tham dự
             </h5>
+            <p className="text-indigo-900 text-sm">
+              Hãy phân tích cách thức "biểu hiện mới" của tư bản tài chính ngày nay. Không cần sở hữu 100% vốn, các ông trùm tài chính dùng cơ chế "cổ phiếu khống chế" và mạng lưới sở hữu chéo để chi phối nền kinh tế toàn cầu như thế nào?
+            </p>
           </div>
 
           <div className="bg-emerald-50 border-l-4 border-emerald-500 p-5 rounded-r-xl">
