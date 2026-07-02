@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import { Search, Network, Loader2, AlertCircle, Layers } from 'lucide-react';
+import { Search, Network, Loader2, AlertCircle, Layers, Camera } from 'lucide-react';
 import { useTracer } from '../hooks/useTracer';
 import { NetworkGraph } from '../components/NetworkGraph';
 
@@ -21,10 +21,17 @@ export function TracerPage() {
     }
   };
 
-  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
-      processImage(file);
+      const companyName = await processImage(file);
+      if (companyName) {
+        setSearchQuery(companyName);
+        processText(companyName, depth);
+      }
+    }
+    if (fileInputRef.current) {
+      fileInputRef.current.value = '';
     }
   };
 
@@ -69,6 +76,22 @@ export function TracerPage() {
         </div>
 
         <div className="flex gap-2 w-full md:w-auto">
+          <input 
+            type="file" 
+            accept="image/*" 
+            ref={fileInputRef} 
+            onChange={handleFileUpload} 
+            className="hidden" 
+          />
+          <button
+            onClick={() => fileInputRef.current?.click()}
+            disabled={state === 'searching' || state === 'analyzing'}
+            className="flex-none px-4 py-3 bg-white border border-slate-200 text-slate-700 font-medium rounded-xl hover:bg-slate-50 transition-colors flex items-center justify-center shadow-sm disabled:opacity-50"
+            title="Tải ảnh sản phẩm để AI nhận diện thương hiệu"
+          >
+            <Camera className="w-5 h-5 text-indigo-600" />
+          </button>
+          
           <button 
             onClick={handleSearch}
             disabled={state !== 'idle' && state !== 'success' && state !== 'error'}

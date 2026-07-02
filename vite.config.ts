@@ -1,11 +1,12 @@
-import { defineConfig } from 'vite'
+import { defineConfig, loadEnv } from 'vite'
 import type { Plugin } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import YahooFinance from 'yahoo-finance2'
+import Anthropic from '@anthropic-ai/sdk'
 const yahooFinance = new YahooFinance({ suppressNotices: ['yahooSurvey'] })
 
-function yahooFinanceApiPlugin(): Plugin {
+function yahooFinanceApiPlugin(anthropicApiKey: string): Plugin {
   return {
     name: 'yahoo-finance-api',
     configureServer(server) {
@@ -133,23 +134,62 @@ function yahooFinanceApiPlugin(): Plugin {
           res.end(JSON.stringify({ error: error.message || 'Internal Server Error' }));
         }
       });
+
+      // POST /api/identify-image — server-side Anthropic call
+      server.middlewares.use('/api/identify-image', async (req, res) => {
+        if (req.method !== 'POST') {
+          res.statusCode = 405;
+          res.end(JSON.stringify({ error: 'Method not allowed' }));
+          return;
+        }
+        try {
+          const chunks: Buffer[] = [];
+          for await (const chunk of req as any) chunks.push(chunk);
+          const body = JSON.parse(Buffer.concat(chunks).toString());
+          const { imageBase64, mediaType } = body;
+
+          const anthropic = new Anthropic({ apiKey: anthropicApiKey });
+          const response = await anthropic.messages.create({
+            model: 'claude-sonnet-5',
+            max_tokens: 100,
+            messages: [{
+              role: 'user',
+              content: [
+                { type: 'image', source: { type: 'base64', media_type: mediaType, data: imageBase64 } },
+                { type: 'text', text: 'Look at this product. What is the name of the company or brand that manufactures or owns it? Respond ONLY with the exact company name, nothing else.' }
+              ]
+            }]
+          });
+
+          const companyName = (response.content[0] as any).text.trim();
+          res.setHeader('Content-Type', 'application/json');
+          res.end(JSON.stringify({ companyName }));
+        } catch (error: any) {
+          console.error('Image identify error:', error);
+          res.statusCode = 500;
+          res.end(JSON.stringify({ error: error.message || 'AI error' }));
+        }
+      });
     }
   }
 }
 
 // https://vite.dev/config/
-export default defineConfig({
-  plugins: [
-    react(),
-    tailwindcss(),
-    yahooFinanceApiPlugin(),
-  ],
-  server: {
-    proxy: {
-      '/api/opensanctions': {
-        target: 'https://api.opensanctions.org',
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api\/opensanctions/, '')
+export default defineConfig(({ mode }) => {
+  const env = loadEnv(mode, process.cwd(), '')
+  return {
+    plugins: [
+      react(),
+      tailwindcss(),
+      yahooFinanceApiPlugin(env.VITE_ANTHROPIC_API_KEY),
+    ],
+    server: {
+      proxy: {
+        '/api/opensanctions': {
+          target: 'https://api.opensanctions.org',
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/api\/opensanctions/, '')
+        }
       }
     }
   }

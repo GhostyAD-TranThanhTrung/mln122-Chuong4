@@ -14,9 +14,42 @@ export function useTracer() {
     setGraphData(null);
   };
 
-  const processImage = async (_file: File) => {
-    setError('Tính năng AI nhận diện hình ảnh đã bị vô hiệu hóa.');
-    setState('error');
+  const processImage = async (file: File): Promise<string | null> => {
+    try {
+      reset();
+      setState('analyzing');
+
+      const base64Image = await new Promise<string>((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onloadend = () => {
+          const result = reader.result as string;
+          resolve(result.split(',')[1]);
+        };
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+      });
+
+      const res = await fetch('/api/identify-image', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ imageBase64: base64Image, mediaType: file.type }),
+      });
+
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}));
+        throw new Error(err.error || 'AI image identification failed');
+      }
+
+      const data = await res.json();
+      const companyName = data.companyName?.trim();
+      setState('idle');
+      return companyName || null;
+    } catch (e: any) {
+      console.error(e);
+      setError(e.message || 'Lỗi nhận diện hình ảnh với AI');
+      setState('error');
+      return null;
+    }
   };
 
   const processText = async (brandName: string, depth: 1 | 2 = 2) => {
