@@ -223,7 +223,7 @@ function BigThreeSection() {
         </div>
         <div className="bg-slate-100 p-5 rounded-xl text-slate-800 mt-6 border-l-4 border-marx-red shadow-sm">
           <p className="mb-2 leading-relaxed">
-            <strong>Theo Lênin</strong>, tư bản tài chính là sự hợp nhất giữa tư bản độc quyền ngân hàng và tư bản độc quyền công nghiệp. Giáo trình (trang 97) nhấn mạnh sự ra đời của các <strong>"tập đoàn tài chính quốc tế"</strong> và <strong>"trung tâm tài chính thế giới"</strong>.
+            <strong>Theo Lênin</strong>, tư bản tài chính là sự hợp nhất giữa tư bản độc quyền ngân hàng và tư bản độc quyền công nghiệp. Giáo trình nhấn mạnh sự ra đời "biểu hiện mới" của các <strong>"tập đoàn tài chính quốc tế"</strong> và <strong>"trung tâm tài chính thế giới"</strong>.
           </p>
           <p className="leading-relaxed">
             <strong>Vận dụng vào thực tế:</strong> BlackRock, Vanguard chính là hiện thân đương đại của các tập đoàn tài chính khổng lồ đó. Vai trò trung tâm của ngân hàng cổ điển đang dần nhường chỗ cho các quỹ quản lý tài sản — bản chất chi phối nền kinh tế không đổi, nhưng hình thức tinh vi hơn rất nhiều.
