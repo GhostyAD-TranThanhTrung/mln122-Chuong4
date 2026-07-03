@@ -11,7 +11,7 @@ export function TracerPage() {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleSearch = () => {
-    if (searchQuery.trim()) {
+    if (searchQuery && typeof searchQuery === 'string' && searchQuery.trim()) {
       setPreviewImage(null);
       processText(searchQuery.trim(), depth);
     }
