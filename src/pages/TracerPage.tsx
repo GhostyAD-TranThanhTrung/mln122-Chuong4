@@ -5,7 +5,7 @@ import { NetworkGraph } from '../components/NetworkGraph';
 
 export function TracerPage() {
   const [searchQuery, setSearchQuery] = useState('');
-  const [depth, setDepth] = useState<1 | 2>(2);
+  const [depth, setDepth] = useState<1 | 2 | 3>(2);
   const [previewImage, setPreviewImage] = useState<string | null>(null);
   const { state, error, graphData, processText, processImage } = useTracer();
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -69,7 +69,7 @@ export function TracerPage() {
         {/* Depth Selector */}
         <div className="flex items-center gap-1.5 bg-slate-100 rounded-xl p-1 flex-shrink-0">
           <Layers className="w-4 h-4 text-slate-500 ml-1.5" />
-          {([1, 2] as const).map((d) => (
+          {([1, 2, 3] as const).map((d) => (
             <button
               key={d}
               onClick={() => setDepth(d)}

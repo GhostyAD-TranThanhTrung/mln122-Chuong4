@@ -52,7 +52,7 @@ export function useTracer() {
     }
   };
 
-  const processText = async (brandName: string, depth: 1 | 2 = 2) => {
+  const processText = async (brandName: string, depth: 1 | 2 | 3 = 2) => {
     try {
       reset();
       await runAnalysisPipeline(brandName, depth);
@@ -63,7 +63,7 @@ export function useTracer() {
     }
   };
 
-  const runAnalysisPipeline = async (initialBrand: string, depth: 1 | 2 = 2) => {
+  const runAnalysisPipeline = async (initialBrand: string, depth: 1 | 2 | 3 = 2) => {
     try {
       setState('searching');
 
